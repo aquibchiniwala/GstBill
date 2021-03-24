@@ -1,0 +1,69 @@
+D:\CS Project\GSTBill\GSTBill\bin\Debug\GSTBill.exe.config
+D:\CS Project\GSTBill\GSTBill\bin\Debug\GSTBill.exe
+D:\CS Project\GSTBill\GSTBill\bin\Debug\GSTBill.pdb
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.csprojResolveAssemblyReference.cache
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.Properties.Resources.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.Cache
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.exe
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.pdb
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.Menu.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.PartyMaster.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.FirmMaster.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.Login.resources
+G:\New folder\GSTBill\GSTBill\bin\Debug\GSTBill.exe.config
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.exe
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.pdb
+G:\New folder\GSTBill\GSTBill\bin\Debug\GSTBill.exe
+G:\New folder\GSTBill\GSTBill\bin\Debug\GSTBill.pdb
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.csprojResolveAssemblyReference.cache
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.FirmMaster.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.Form1.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.Login.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.MACSEC.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.Menu.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.PartyMaster.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.Properties.Resources.resources
+G:\New folder\GSTBill\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.Cache
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.rptSales.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.ExportToExcel.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.SupplierMaster.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.PurchaseDetail.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.SalesDetail.resources
+D:\CS Project\GSTBill\GSTBill\obj\Debug\GSTBill.Registration.resources
+H:\GSTBill(01-03-2018) final\GSTBill\bin\Debug\GSTBill.exe.config
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.exe
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.pdb
+H:\GSTBill(01-03-2018) final\GSTBill\bin\Debug\GSTBill.exe
+H:\GSTBill(01-03-2018) final\GSTBill\bin\Debug\GSTBill.pdb
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.csprojResolveAssemblyReference.cache
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.ExportToExcel.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.FirmMaster.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.PurchaseDetail.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.SalesDetail.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.Login.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.Registration.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.Menu.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.PartyMaster.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.Properties.Resources.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.SupplierMaster.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.rptSales.resources
+H:\GSTBill(01-03-2018) final\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.Cache
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.csprojAssemblyReference.cache
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.ExportToExcel.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.FirmMaster.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.PurchaseDetail.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.SalesDetail.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.Login.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.Registration.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.Menu.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.PartyMaster.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.Properties.Resources.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.SupplierMaster.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.rptSales.resources
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.cache
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.csproj.CoreCompileInputs.cache
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\bin\Debug\GSTBill.exe.config
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\bin\Debug\GSTBill.exe
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\bin\Debug\GSTBill.pdb
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.exe
+D:\Personal\GSTBill-20210323T164732Z-001\GSTBill\GSTBill\obj\Debug\GSTBill.pdb

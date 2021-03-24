@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19834F2D-A5E2-460B-8990-C0F36DA4A591}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSTBill</RootNamespace>
+    <AssemblyName>GSTBill</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>desktop_hmpg_blue_icon_9GU_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connectivity.cs" />
+    <Compile Include="DatasetList\dsFirmMasterView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFirmMasterView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllFirm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListAllFirm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllFirmSelect.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListAllFirmSelect.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllParty.cs">
+      <DependentUpon>dsListAllParty.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllParty.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListAllParty.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllPartySelect.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListAllPartySelect.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsListAllSupplier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListAllSupplier.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsMACMasterView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMACMasterView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsPartyMasterView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPartyMasterView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsRptSales.cs">
+      <DependentUpon>dsRptSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsRptSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRptSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetList\dsSupplierMasterView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSupplierMasterView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExportToExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportToExcel.Designer.cs">
+      <DependentUpon>ExportToExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirmMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirmMaster.Designer.cs">
+      <DependentUpon>FirmMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseDetail.Designer.cs">
+      <DependentUpon>PurchaseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesDetail.Designer.cs">
+      <DependentUpon>SalesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartyMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartyMaster.Designer.cs">
+      <DependentUpon>PartyMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierMaster.Designer.cs">
+      <DependentUpon>SupplierMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptSales.Designer.cs">
+      <DependentUpon>rptSales.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ExportToExcel.resx">
+      <DependentUpon>ExportToExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirmMaster.resx">
+      <DependentUpon>FirmMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseDetail.resx">
+      <DependentUpon>PurchaseDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesDetail.resx">
+      <DependentUpon>SalesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartyMaster.resx">
+      <DependentUpon>PartyMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierMaster.resx">
+      <DependentUpon>SupplierMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSales.resx">
+      <DependentUpon>rptSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DatasetList\dsFirmMasterView.xsc">
+      <DependentUpon>dsFirmMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsFirmMasterView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFirmMasterView.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsFirmMasterView.xss">
+      <DependentUpon>dsFirmMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllFirm.xsc">
+      <DependentUpon>dsListAllFirm.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllFirm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListAllFirm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsListAllFirm.xss">
+      <DependentUpon>dsListAllFirm.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllFirmSelect.xsc">
+      <DependentUpon>dsListAllFirmSelect.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllFirmSelect.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListAllFirmSelect.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsListAllFirmSelect.xss">
+      <DependentUpon>dsListAllFirmSelect.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllParty.xsc">
+      <DependentUpon>dsListAllParty.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllParty.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListAllParty.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsListAllParty.xss">
+      <DependentUpon>dsListAllParty.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllPartySelect.xsc">
+      <DependentUpon>dsListAllPartySelect.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllPartySelect.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListAllPartySelect.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsListAllPartySelect.xss">
+      <DependentUpon>dsListAllPartySelect.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllSupplier.xsc">
+      <DependentUpon>dsListAllSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsListAllSupplier.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListAllSupplier.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsListAllSupplier.xss">
+      <DependentUpon>dsListAllSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsMACMasterView.xsc">
+      <DependentUpon>dsMACMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsMACMasterView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMACMasterView.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsMACMasterView.xss">
+      <DependentUpon>dsMACMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsPartyMasterView.xsc">
+      <DependentUpon>dsPartyMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsPartyMasterView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPartyMasterView.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsPartyMasterView.xss">
+      <DependentUpon>dsPartyMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsRptSales.xsc">
+      <DependentUpon>dsRptSales.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsRptSales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRptSales.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsRptSales.xss">
+      <DependentUpon>dsRptSales.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsSupplierMasterView.xsc">
+      <DependentUpon>dsSupplierMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsSupplierMasterView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSupplierMasterView.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsSupplierMasterView.xss">
+      <DependentUpon>dsSupplierMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="desktop_hmpg_blue_icon_9GU_icon.ico" />
+    <None Include="excel.png" />
+    <Content Include="LogoNew.png" />
+    <Content Include="looms.jpg" />
+    <Content Include="Resources\MenuStrip.png" />
+    <None Include="search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
