@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
 
 namespace GSTBill
 {
@@ -15,59 +7,60 @@ namespace GSTBill
     {
         DateTime dt, dt2;
         Connectivity cn = new Connectivity();
-        String date=DateTime.Today.Day+"-"+DateTime.Today.Month+"-"+DateTime.Today.Year;
+        String date = DateTime.Today.Day + "-" + DateTime.Today.Month + "-" + DateTime.Today.Year;
+        decimal sales = 0, Disc=0, GT = 0,CGST = 0, SGST = 0, IGST = 0, TCS=0;
         public rptSales()
         {
             InitializeComponent();
         }
 
-       /* public string MonthCon(string m)
-        {
-            string month="";
-            switch (m)
-            {
-                case "01":
-                    month= "JAN";
-                    break;
-                case "02":
-                    month = "FEB";
-                    break;
-                case "03":
-                    month = "MARCH";
-                    break;
-                case "04":
-                    month = "APRIL";
-                    break;
-                case "05":
-                    month = "MAY";
-                    break;
-                case "06":
-                    month = "JUNE";
-                    break;
-                case "07":
-                    month = "JULY";
-                    break;
-                case "08":
-                    month = "AUG";
-                    break;
-                case "09":
-                    month = "SEP";
-                    break;
-                case "10":
-                    month = "OCT";
-                    break;
-                case "11":
-                    month = "NOV";
-                    break;
-                case "12":
-                    month = "DEC";
-                    break;
+        /* public string MonthCon(string m)
+         {
+             string month="";
+             switch (m)
+             {
+                 case "01":
+                     month= "JAN";
+                     break;
+                 case "02":
+                     month = "FEB";
+                     break;
+                 case "03":
+                     month = "MARCH";
+                     break;
+                 case "04":
+                     month = "APRIL";
+                     break;
+                 case "05":
+                     month = "MAY";
+                     break;
+                 case "06":
+                     month = "JUNE";
+                     break;
+                 case "07":
+                     month = "JULY";
+                     break;
+                 case "08":
+                     month = "AUG";
+                     break;
+                 case "09":
+                     month = "SEP";
+                     break;
+                 case "10":
+                     month = "OCT";
+                     break;
+                 case "11":
+                     month = "NOV";
+                     break;
+                 case "12":
+                     month = "DEC";
+                     break;
 
-            };
-            return month;
+             };
+             return month;
 
-        }*/
-            
+         }*/
+
         private void rptSales_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsListAllPartySelect.ListAllPartySelect' table. You can move, or remove it, as needed.
@@ -80,25 +73,30 @@ namespace GSTBill
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            sales = 0; Disc=0; GT = 0; CGST = 0; SGST = 0; IGST = 0; TCS=0;
+
             if (txtInvoiceNo.Text == "")
-                this.rptSalesTableAdapter.Fill(dsRptSales.rptSales, 0, Convert.ToInt32(ddlFirm.SelectedValue), Convert.ToInt32(ddlParty.SelectedValue),dt,dt2);
+                this.rptSalesTableAdapter.Fill(dsRptSales.rptSales, "", Convert.ToInt32(ddlFirm.SelectedValue), Convert.ToInt32(ddlParty.SelectedValue), dt, dt2);
             else
-                this.rptSalesTableAdapter.Fill(dsRptSales.rptSales,Convert.ToInt32(txtInvoiceNo.Text), Convert.ToInt32(ddlFirm.SelectedValue), Convert.ToInt32(ddlParty.SelectedValue), dt,dt2);
-            
-            decimal sales = 0, GT = 0,GST=0;
+                this.rptSalesTableAdapter.Fill(dsRptSales.rptSales, txtInvoiceNo.Text, Convert.ToInt32(ddlFirm.SelectedValue), Convert.ToInt32(ddlParty.SelectedValue), dt, dt2);
+
             if (dgv.Rows.Count > 0)
             {
-
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
-                    GT = GT + Convert.ToDecimal(dgv.Rows[i].Cells[5].Value.ToString());
-                    sales = sales + Convert.ToDecimal(dgv.Rows[i].Cells[8].Value.ToString());
-                    GST = GST + Convert.ToDecimal(dgv.Rows[i].Cells[6].Value.ToString())+Convert.ToDecimal(dgv.Rows[i].Cells[7].Value.ToString());
+                    GT = GT + Convert.ToDecimal(dgv.Rows[i].Cells[6].Value.ToString());
+                    Disc = Disc + Convert.ToDecimal(dgv.Rows[i].Cells[7].Value.ToString());
+                    SGST = SGST + Convert.ToDecimal(dgv.Rows[i].Cells[9].Value.ToString());
+                    CGST = CGST + Convert.ToDecimal(dgv.Rows[i].Cells[11].Value.ToString());
+                    IGST = IGST + Convert.ToDecimal(dgv.Rows[i].Cells[13].Value.ToString());
+                    TCS = TCS + Convert.ToDecimal(dgv.Rows[i].Cells[15].Value.ToString());
+                    sales = sales + Convert.ToDecimal(dgv.Rows[i].Cells[17].Value.ToString());
+
 
                 }
                 txtGrossTotal.Text = GT.ToString();
                 txtTotalSales.Text = sales.ToString();
-                txtTotalGST.Text = GST.ToString();
+                txtTotalGST.Text = (CGST+SGST+IGST).ToString();
             }
             else
             {
@@ -124,7 +122,7 @@ namespace GSTBill
         {
             if (e.KeyCode == Keys.Escape)
             {
-                cn.Exit(this);                       
+                cn.Exit(this);
             }
         }
 
@@ -140,7 +138,7 @@ namespace GSTBill
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
                 // creating new WorkBook within Excel application 
                 Microsoft.Office.Interop.Excel._Workbook workbook;
-               // app.DisplayAlerts = false;
+                // app.DisplayAlerts = false;
                 if (!System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\Firms\\" + ddlFirm.Text + "\\Reports\\" + date + ".xlsx"))
                 {
                     workbook = app.Workbooks.Add(Type.Missing);
@@ -153,44 +151,47 @@ namespace GSTBill
                 // creating new Excelsheet in workbook  
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
                 worksheet = (Microsoft.Office.Interop.Excel._Worksheet)workbook.Sheets[1];
-                workbook.Sheets[1].Activate(); 
-                worksheet.Name = "Sales "+ddlFirm.Text;
-                
+                workbook.Sheets[1].Activate();
+                worksheet.Name = "Sales " + ddlFirm.Text;
+
                 // storing header part in Excel  
-                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 9]].Merge();
-                worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 9]].Merge();
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 18]].Merge();
+                worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 18]].Merge();
                 worksheet.Cells[1, 1] = ddlFirm.Text;
-               // worksheet.Cells[2, 1] = "SALES FOR MONTH - " + month;
+                // worksheet.Cells[2, 1] = "SALES FOR MONTH - " + month;
                 worksheet.Cells[4, 1] = "SrNo";
-                for (int i = 2; i < 10; i++)
+                for (int i = 2; i < 19; i++)
                 {
                     worksheet.Cells[4, i] = dgv.Columns[i - 1].HeaderText;
                 }
                 // storing Each row and column value to excel sheet  
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
-                    for (int j = 1; j < 9; j++)
+                    for (int j = 1; j < 18; j++)
                     {
-                            worksheet.Cells[i + 5, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 5, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
                     }
-                    worksheet.Cells[5+i,1] = i + 1;
+                    worksheet.Cells[5 + i, 1] = i + 1;
                 }
-              
 
-                worksheet.Cells[2, 1] = "From Date : "+dtpFromDate.Text+"                To Date : "+dtpToDate.Text;
+
+                worksheet.Cells[2, 1] = "From Date : " + dtpFromDate.Text + "                To Date : " + dtpToDate.Text;
                 worksheet.Cells[dgv.Rows.Count + 6, 1] = "TOTAL";
-                worksheet.Cells[dgv.Rows.Count + 6,6] = txtGrossTotal.Text;
-                worksheet.Cells[dgv.Rows.Count + 6, 7] = (Convert.ToDouble(txtTotalGST.Text) / 2).ToString();
-                worksheet.Cells[dgv.Rows.Count + 6, 8] = (Convert.ToDouble(txtTotalGST.Text) / 2).ToString();
-                worksheet.Cells[dgv.Rows.Count + 6, 9] = txtTotalSales.Text;
+                worksheet.Cells[dgv.Rows.Count + 6, 7] = GT.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 8] = Disc.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 10] = SGST.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 12] = CGST.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 14] = IGST.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 16] = TCS.ToString();
+                worksheet.Cells[dgv.Rows.Count + 6, 18] = sales.ToString();
 
-                worksheet.Range[worksheet.Cells[dgv.Rows.Count + 6, 6], worksheet.Cells[dgv.Rows.Count + 6, 9]].Font.Bold = true;
+                worksheet.Range[worksheet.Cells[dgv.Rows.Count + 6, 6], worksheet.Cells[dgv.Rows.Count + 6, 18]].Font.Bold = true;
                 worksheet.Cells[dgv.Rows.Count + 6, 1].Font.Bold = true;
                 worksheet.Range[worksheet.Cells[dgv.Rows.Count + 6, 1], worksheet.Cells[dgv.Rows.Count + 6, 5]].Merge();
 
                 // formating excel sheet
-                
-                worksheet.get_Range("A1", "I4").Font.Bold = true;
+
+                worksheet.get_Range("A1", "R4").Font.Bold = true;
                 worksheet.get_Range("A1", "B2").Font.Underline = true;
 
                 foreach (Microsoft.Office.Interop.Excel.Worksheet workSheet in workbook.Worksheets)
@@ -201,7 +202,7 @@ namespace GSTBill
 
                 worksheet.get_Range("A1", "K100").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-                
+
 
                 // changing the name of active sheet  
                 /*Microsoft.Office.Interop.Excel._Worksheet worksheet2 = null;
@@ -238,19 +239,19 @@ namespace GSTBill
 
         private void dgvView_DoubleClick(object sender, EventArgs e)
         {
-           string INO = dgv.CurrentRow.Cells[1].Value.ToString();
-           string Firm = dgv.CurrentRow.Cells[0].Value.ToString();
-            if(System.IO.File.Exists(System.Windows.Forms. Application.StartupPath + "//Firms//"+Firm+"//"+INO+".xps"))
-                System.Diagnostics.Process.Start(System.Windows.Forms. Application.StartupPath + "//Firms//"+Firm+"//"+INO+".xps");
+            string INO = dgv.CurrentRow.Cells[1].Value.ToString();
+            string Firm = dgv.CurrentRow.Cells[0].Value.ToString();
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "//Firms//" + Firm + "//" + INO + ".xps"))
+                System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + "//Firms//" + Firm + "//" + INO + ".xps");
 
         }
 
         private void dgv_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for (int i = 0; i < dgv.Rows.Count; i++)
-            {
-                dgv.Rows[i].Cells[5].Value = (Convert.ToDouble(dgv.Rows[i].Cells[32].Value) - (Convert.ToDouble(dgv.Rows[i].Cells[7].Value) + Convert.ToDouble(dgv.Rows[i].Cells[6].Value)));
-            }
+            //for (int i = 0; i < dgv.Rows.Count; i++)
+            //{
+            //    dgv.Rows[i].Cells[5].Value = (Convert.ToDouble(dgv.Rows[i].Cells[8].Value) - (Convert.ToDouble(dgv.Rows[i].Cells[7].Value) + Convert.ToDouble(dgv.Rows[i].Cells[6].Value)));
+            //}
 
         }
 

@@ -16,13 +16,14 @@ namespace GSTBill
     public partial class SalesDetail : Form
     {
         Connectivity cn = new Connectivity();
-        string FirmName, Address, MobileNo, GSTIN,HSN,Printer;
-        double gt, sgst, cgst, igst,nt;
-        int flag = 0,INo;
+        string FirmName, Address, MobileNo, GSTIN, HSN, Printer, BillSeries;
+        double gt, sgst, cgst, igst, tcs, nt;
+        int flag = 0, INo;
         DateTime dt;
         public SalesDetail()
         {
             InitializeComponent();
+            txtTCSPer.Text = "0";
         }
 
         public void reset()
@@ -48,7 +49,9 @@ namespace GSTBill
             dgv.Rows.Clear();
             txtSGST.Text = "0";
             txtCGST.Text = "0";
-            txtIGST.Text = "0"; ;
+            txtIGST.Text = "0";
+            txtTCS.Text = "0";
+            txtTCSPer.Text = "0";
             ddlSGST.SelectedIndex = 1;
             ddlCGST.SelectedIndex = 1;
             ddlIGST.SelectedIndex = 0;
@@ -61,22 +64,7 @@ namespace GSTBill
             txtChequeNo.Text = "";
             txtChequeDate.Text = "";
             txtAmount.Text = "";
-            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceNo desc ", cn.cn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                if ((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1) < 10)
-                    txtInvoiceNo.Text = "00" + (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else if ((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1) < 100)
-                    txtInvoiceNo.Text = "0" + (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else
-                    txtInvoiceNo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-
-            }
-            else
-                txtInvoiceNo.Text = "001";
+            setNextInvoiceNo();
         }
 
         public string ConvertNumbertoWords(long number)
@@ -107,13 +95,13 @@ namespace GSTBill
             if (number > 0)
             {
                 if (words != "") words += "AND ";
-                var unitsMap = new[]   
-            {  
-                "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN"  
+                var unitsMap = new[]
+            {
+                "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN"
             };
-                var tensMap = new[]   
-            {  
-                "ZERO", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY"  
+                var tensMap = new[]
+            {
+                "ZERO", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY"
             };
                 if (number < 20) words += unitsMap[number];
                 else
@@ -123,7 +111,7 @@ namespace GSTBill
                 }
             }
             return words;
-        }  
+        }
         private void PrintPage(object o, PrintPageEventArgs e)
         {
 
@@ -172,26 +160,26 @@ namespace GSTBill
             //e.Graphics.DrawString("----------------------------------------------------------------------------", font1, Brushes.Black, 10, 95);
             e.Graphics.DrawString(FirmName.ToUpper(), font2, Brushes.Black, 260, 35);
             e.Graphics.DrawString(Address, font0, Brushes.Black, 145, 65);
-            e.Graphics.DrawString("(M) "+MobileNo, font0, Brushes.Black, 280, 85);
+            e.Graphics.DrawString("(M) " + MobileNo, font0, Brushes.Black, 280, 85);
             e.Graphics.DrawString("GSTIN : " + GSTIN, font0, Brushes.Black, 285, 105);
             e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 120);
             e.Graphics.DrawString("Billed To        : ", font0, Brushes.Black, 30, 150);
             if (ddlBilledTo.SelectedValue != null)
                 e.Graphics.DrawString("M/S, " + ddlBilledTo.Text.ToUpper(), font3, Brushes.Black, 30, 170);
             else
-                e.Graphics.DrawString("M/S, " , font3, Brushes.Black, 30, 170);
+                e.Graphics.DrawString("M/S, ", font3, Brushes.Black, 30, 170);
 
             if (txtBillAdd.Text != "")
                 e.Graphics.DrawString(txtBillAdd.Text.ToUpper(), font0, Brushes.Black, 30, 190);
 
-            if(txtBillMobNo.Text!="")
-                e.Graphics.DrawString("MOBILE NO  : "+txtBillMobNo.Text, font0, Brushes.Black, 30, 210);
+            if (txtBillMobNo.Text != "")
+                e.Graphics.DrawString("MOBILE NO  : " + txtBillMobNo.Text, font0, Brushes.Black, 30, 210);
             else
                 e.Graphics.DrawString("MOBILE NO  : ", font0, Brushes.Black, 30, 210);
             if (txtBillState.Text != "")
                 e.Graphics.DrawString("STATE          : " + txtBillState.Text.ToUpper(), font0, Brushes.Black, 30, 230);
             else
-                e.Graphics.DrawString("STATE          :" , font0, Brushes.Black, 30, 230);
+                e.Graphics.DrawString("STATE          :", font0, Brushes.Black, 30, 230);
 
             if (txtBillGST.Text != "")
                 e.Graphics.DrawString("PARTY GST : " + txtBillGST.Text.ToUpper(), font0, Brushes.Black, 30, 250);
@@ -258,7 +246,7 @@ namespace GSTBill
 
 
             if (txtInvoiceNo.Text != "")
-                e.Graphics.DrawString("    INVOICE NO       : " + txtInvoiceNo.Text.ToUpper(), font3, Brushes.Black, 520,150);
+                e.Graphics.DrawString("    INVOICE NO       : " + txtInvoiceNo.Text.ToUpper(), font3, Brushes.Black, 520, 150);
             else
                 e.Graphics.DrawString("    INVOICE NO       : ", font3, Brushes.Black, 520, 150);
 
@@ -274,149 +262,149 @@ namespace GSTBill
             e.Graphics.DrawString("    CHALLAN DATE : " + dtpChallanDate.Text, font0, Brushes.Black, 520, 230);
 
 
-                if (txtState.Text != "")
-                    e.Graphics.DrawString("    STATE                : " + txtState.Text.ToUpper(), font0, Brushes.Black, 520, 310);
-                else
-                    e.Graphics.DrawString("    STATE                : ", font0, Brushes.Black, 520, 310);
+            if (txtState.Text != "")
+                e.Graphics.DrawString("    STATE                : " + txtState.Text.ToUpper(), font0, Brushes.Black, 520, 310);
+            else
+                e.Graphics.DrawString("    STATE                : ", font0, Brushes.Black, 520, 310);
 
-                if (ddlMode.Text != "")
-                    e.Graphics.DrawString("    MODE                 : " + ddlMode.Text.ToUpper(), font0, Brushes.Black, 520, 330);
-                else
-                    e.Graphics.DrawString("    MODE                 : ", font0, Brushes.Black, 520, 330);
+            if (ddlMode.Text != "")
+                e.Graphics.DrawString("    MODE                 : " + ddlMode.Text.ToUpper(), font0, Brushes.Black, 520, 330);
+            else
+                e.Graphics.DrawString("    MODE                 : ", font0, Brushes.Black, 520, 330);
 
-                if (txtVehicle.Text != "")
-                    e.Graphics.DrawString("    VEHICLE NO      : " + txtVehicle.Text.ToUpper(), font0, Brushes.Black, 520, 350);
-                else
-                    e.Graphics.DrawString("    VEHICLE NO      : ", font0, Brushes.Black, 520, 350);
+            if (txtVehicle.Text != "")
+                e.Graphics.DrawString("    VEHICLE NO      : " + txtVehicle.Text.ToUpper(), font0, Brushes.Black, 520, 350);
+            else
+                e.Graphics.DrawString("    VEHICLE NO      : ", font0, Brushes.Black, 520, 350);
 
-                e.Graphics.DrawString("    SUPPLY DATE   : " + dtpSupplyDate.Text, font0, Brushes.Black, 520, 370);
+            e.Graphics.DrawString("    SUPPLY DATE   : " + dtpSupplyDate.Text, font0, Brushes.Black, 520, 370);
 
-                if (txtSupplyPlace.Text != "")
-                    e.Graphics.DrawString("    SUPPLY PLACE : " + txtSupplyPlace.Text.ToUpper(), font0, Brushes.Black, 520, 390);
-                else
-                    e.Graphics.DrawString("    SUPPLY PLACE : ", font0, Brushes.Black, 520, 390);
+            if (txtSupplyPlace.Text != "")
+                e.Graphics.DrawString("    SUPPLY PLACE : " + txtSupplyPlace.Text.ToUpper(), font0, Brushes.Black, 520, 390);
+            else
+                e.Graphics.DrawString("    SUPPLY PLACE : ", font0, Brushes.Black, 520, 390);
 
-                if(txtBroker.Text!="")
-                    e.Graphics.DrawString("BROKER      : " + txtBroker.Text.ToUpper(), font0, Brushes.Black, 30, 430);
-                else
-                    e.Graphics.DrawString("BROKER      : ", font0, Brushes.Black, 30, 430);
+            if (txtBroker.Text != "")
+                e.Graphics.DrawString("BROKER      : " + txtBroker.Text.ToUpper(), font0, Brushes.Black, 30, 430);
+            else
+                e.Graphics.DrawString("BROKER      : ", font0, Brushes.Black, 30, 430);
 
-                e.Graphics.DrawString("    DUE DATE          : " + dtpDueDate.Text, font0, Brushes.Black, 520, 430);
+            e.Graphics.DrawString("    DUE DATE          : " + dtpDueDate.Text, font0, Brushes.Black, 520, 430);
 
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 450);
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 450);
 
-                for (int i = 130; i < 1070; i = i + 10)
-                {
+            for (int i = 130; i < 1070; i = i + 10)
+            {
 
-                    e.Graphics.DrawString("|                                                                                                                                                                  |", font0, Brushes.Black, 10, i);
-                }
-                for (int i = 0; i < 350; i = i + 10)
-                {
+                e.Graphics.DrawString("|                                                                                                                                                                  |", font0, Brushes.Black, 10, i);
+            }
+            for (int i = 0; i < 350; i = i + 10)
+            {
 
-                    e.Graphics.DrawString("|            |                                                               |                   |               |                 |             |                    ", font0, Brushes.Black, 10, i+460);
-                }
-                for (int i = 350; i < 601; i = i + 10)
-                {
+                e.Graphics.DrawString("|            |                                                               |                   |               |                 |             |                    ", font0, Brushes.Black, 10, i + 460);
+            }
+            for (int i = 350; i < 601; i = i + 10)
+            {
 
-                    e.Graphics.DrawString("|                                                                            |                                                                                             ", font0, Brushes.Black, 10, i + 460);
-                }
-                for (int i = 350; i < 508; i = i + 10)
-                {
+                e.Graphics.DrawString("|                                                                            |                                                                                             ", font0, Brushes.Black, 10, i + 460);
+            }
+            for (int i = 350; i < 508; i = i + 10)
+            {
 
-                    e.Graphics.DrawString("                                                                                                                                             |                   ", font0, Brushes.Black, 10, i + 460);
-                }
-                e.Graphics.DrawString("   SNO     PARTICULARS                                    HSNCODE   TAAKA   METRES    RATE   AMOUNT   ", font3, Brushes.Black, 10, 470 );
+                e.Graphics.DrawString("                                                                                                                                             |                   ", font0, Brushes.Black, 10, i + 460);
+            }
+            e.Graphics.DrawString("   SNO     PARTICULARS                                    HSNCODE   TAAKA   METRES    RATE   AMOUNT   ", font3, Brushes.Black, 10, 470);
 
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 490);
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 810);
-
-
-                for (int i = 0; i < dgv.Rows.Count - 1; i++)
-                {
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[0].Value).ToUpper(), font6, Brushes.Black, 25, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[1].Value).ToUpper(), font6, Brushes.Black, 80, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[2].Value).ToUpper(), font6, Brushes.Black, 395, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[3].Value).ToUpper(), font6, Brushes.Black, 490, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[4].Value).ToUpper(), font6, Brushes.Black, 552, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[5].Value).ToUpper(), font6, Brushes.Black, 633, (510 + i * 25));
-                    e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[6].Value).ToUpper(), font6, Brushes.Black, 695, (510 + i * 25));
-                }
-                e.Graphics.DrawString("NO DYEING GUARANTEE", font3, Brushes.Black, 80, 790);
-
-                if(txtBank.Text!="")
-                    e.Graphics.DrawString("Bank      : "+txtBank.Text.ToUpper(), font4, Brushes.Black, 20, 830);
-                else
-                    e.Graphics.DrawString("Bank      : ", font4, Brushes.Black, 20, 830);
-
-                if (txtChequeDate.Text != "")
-                    e.Graphics.DrawString("Date      : " + txtChequeDate.Text.ToUpper(), font4, Brushes.Black, 220, 830);
-                else
-                    e.Graphics.DrawString("Date      : ", font4, Brushes.Black, 220, 830);
-
-                if (txtChequeNo.Text != "")
-                    e.Graphics.DrawString("Chq No. : " + txtChequeNo.Text.ToUpper(), font4, Brushes.Black, 20, 850);
-                else
-                    e.Graphics.DrawString("Chq No. : " , font4, Brushes.Black, 20, 850);
-
-                if (txtAmount.Text != "")
-                    e.Graphics.DrawString("Amount : " + txtAmount.Text, font4, Brushes.Black, 220, 850);
-                else
-                    e.Graphics.DrawString("Amount : ", font4, Brushes.Black, 220, 850);
-
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 865);
-
-                e.Graphics.DrawString("GROSS AMOUNT", font0, Brushes.Black, 390, 830);
-                e.Graphics.DrawString(txtGrossTotal.Text, font0, Brushes.Black, 690, 830);
-
-                e.Graphics.DrawString("LESS DISC", font0, Brushes.Black, 390, 850);
-                e.Graphics.DrawString(txtDiscPer.Text + "%", font0, Brushes.Black, 630, 850);
-                e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtDiscAmt.Text), 2)).ToString(), font0, Brushes.Black, 690, 850);
-
-                e.Graphics.DrawString("ADD SGST", font0, Brushes.Black, 390, 880);
-                e.Graphics.DrawString(ddlSGST.Text + "%", font0, Brushes.Black, 630, 880);
-                e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtSGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 880);
-
-                e.Graphics.DrawString("ADD CGST", font0, Brushes.Black, 390, 900);
-                e.Graphics.DrawString(ddlCGST.Text + "%", font0, Brushes.Black, 630, 900);
-                e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtCGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 900);
-
-                e.Graphics.DrawString("ADD IGST", font0, Brushes.Black, 390, 920);
-                e.Graphics.DrawString(ddlIGST.Text + "%", font0, Brushes.Black, 630, 920);
-                e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtIGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 920);
-
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 930);
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 490);
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 810);
 
 
-                e.Graphics.DrawString(ConvertNumbertoWords(Convert.ToInt32( Math.Round(Convert.ToDouble(txtNetTotal.Text),0)))+" ONLY.", font5, Brushes.Black, 20, 950);
-                
-                e.Graphics.DrawString("NET AMOUNT", font3, Brushes.Black, 390, 950);
-                e.Graphics.DrawString(txtNetTotal.Text, font3, Brushes.Black, 690, 950);
+            for (int i = 0; i < dgv.Rows.Count - 1; i++)
+            {
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[0].Value).ToUpper(), font6, Brushes.Black, 25, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[1].Value).ToUpper(), font6, Brushes.Black, 80, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[2].Value).ToUpper(), font6, Brushes.Black, 395, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[3].Value).ToUpper(), font6, Brushes.Black, 490, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[4].Value).ToUpper(), font6, Brushes.Black, 552, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[5].Value).ToUpper(), font6, Brushes.Black, 633, (510 + i * 25));
+                e.Graphics.DrawString(Convert.ToString(dgv.Rows[i].Cells[6].Value).ToUpper(), font6, Brushes.Black, 695, (510 + i * 25));
+            }
+            e.Graphics.DrawString("NO DYEING GUARANTEE", font3, Brushes.Black, 80, 790);
 
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 960);
+            if (txtBank.Text != "")
+                e.Graphics.DrawString("Bank      : " + txtBank.Text.ToUpper(), font4, Brushes.Black, 20, 830);
+            else
+                e.Graphics.DrawString("Bank      : ", font4, Brushes.Black, 20, 830);
 
-                e.Graphics.DrawString("Terms & Conditions.", font0, Brushes.Black, 20, 980);
-                e.Graphics.DrawString("Goods Once Sold Will Not Be Taken Back.", font0, Brushes.Black, 20, 1000);
-                e.Graphics.DrawString("No Guarantee Of Any Goods.", font0, Brushes.Black, 20, 1020);
-                e.Graphics.DrawString("Int.24% P.A Will Be Charged After Due Date.", font0, Brushes.Black, 20, 1040);
-                e.Graphics.DrawString("Subject To Surat Jurisdiction.", font0, Brushes.Black, 20, 1060);
+            if (txtChequeDate.Text != "")
+                e.Graphics.DrawString("Date      : " + txtChequeDate.Text.ToUpper(), font4, Brushes.Black, 220, 830);
+            else
+                e.Graphics.DrawString("Date      : ", font4, Brushes.Black, 220, 830);
 
-                e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 980);
-                e.Graphics.DrawString("for, ", font0, Brushes.Black, 540, 1000);
-                e.Graphics.DrawString(ddlFirm.Text+".", font3, Brushes.Black, 570, 1000);
-                e.Graphics.DrawString("Authorised Signatory.", font3, Brushes.Black, 570, 1060);
+            if (txtChequeNo.Text != "")
+                e.Graphics.DrawString("Chq No. : " + txtChequeNo.Text.ToUpper(), font4, Brushes.Black, 20, 850);
+            else
+                e.Graphics.DrawString("Chq No. : ", font4, Brushes.Black, 20, 850);
 
-          
+            if (txtAmount.Text != "")
+                e.Graphics.DrawString("Amount : " + txtAmount.Text, font4, Brushes.Black, 220, 850);
+            else
+                e.Graphics.DrawString("Amount : ", font4, Brushes.Black, 220, 850);
+
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 865);
+
+            e.Graphics.DrawString("GROSS AMOUNT", font0, Brushes.Black, 390, 830);
+            e.Graphics.DrawString(txtGrossTotal.Text, font0, Brushes.Black, 690, 830);
+
+            e.Graphics.DrawString("LESS DISC", font0, Brushes.Black, 390, 850);
+            e.Graphics.DrawString(txtDiscPer.Text + "%", font0, Brushes.Black, 630, 850);
+            e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtDiscAmt.Text), 2)).ToString(), font0, Brushes.Black, 690, 850);
+
+            e.Graphics.DrawString("ADD SGST", font0, Brushes.Black, 390, 880);
+            e.Graphics.DrawString(ddlSGST.Text + "%", font0, Brushes.Black, 630, 880);
+            e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtSGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 880);
+
+            e.Graphics.DrawString("ADD CGST", font0, Brushes.Black, 390, 900);
+            e.Graphics.DrawString(ddlCGST.Text + "%", font0, Brushes.Black, 630, 900);
+            e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtCGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 900);
+
+            e.Graphics.DrawString("ADD IGST", font0, Brushes.Black, 390, 920);
+            e.Graphics.DrawString(ddlIGST.Text + "%", font0, Brushes.Black, 630, 920);
+            e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtIGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 920);
+
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 930);
 
 
-                e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 1070);
+            e.Graphics.DrawString(ConvertNumbertoWords(Convert.ToInt32(Math.Round(Convert.ToDouble(txtNetTotal.Text), 0))) + " ONLY.", font5, Brushes.Black, 20, 950);
 
-           
+            e.Graphics.DrawString("NET AMOUNT", font3, Brushes.Black, 390, 950);
+            e.Graphics.DrawString(txtNetTotal.Text, font3, Brushes.Black, 690, 950);
+
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 960);
+
+            e.Graphics.DrawString("Terms & Conditions.", font0, Brushes.Black, 20, 980);
+            e.Graphics.DrawString("Goods Once Sold Will Not Be Taken Back.", font0, Brushes.Black, 20, 1000);
+            e.Graphics.DrawString("No Guarantee Of Any Goods.", font0, Brushes.Black, 20, 1020);
+            e.Graphics.DrawString("Int.24% P.A Will Be Charged After Due Date.", font0, Brushes.Black, 20, 1040);
+            e.Graphics.DrawString("Subject To Surat Jurisdiction.", font0, Brushes.Black, 20, 1060);
+
+            e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 980);
+            e.Graphics.DrawString("for, ", font0, Brushes.Black, 540, 1000);
+            e.Graphics.DrawString(ddlFirm.Text + ".", font3, Brushes.Black, 570, 1000);
+            e.Graphics.DrawString("Authorised Signatory.", font3, Brushes.Black, 570, 1060);
+
+
+
+
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 1070);
+
+
 
 
         }
         private void NetTotal()
         {
-            gt = 0; sgst = 0; cgst = 0; igst = 0;
+            gt = 0; sgst = 0; cgst = 0; igst = 0; tcs = 0;
             if (txtDiscPer.Text != "")
                 txtDiscAmt.Text = (Convert.ToDouble(txtDiscPer.Text) * Convert.ToDouble(txtGrossTotal.Text) / 100).ToString();
             else
@@ -425,16 +413,26 @@ namespace GSTBill
                 txtDiscPer.Text = "0";
             }
             gt = Convert.ToDouble(txtGrossTotal.Text) - Convert.ToDouble(txtDiscAmt.Text);
-            txtSGST.Text = Math.Round(((Convert.ToDouble(ddlSGST.SelectedItem) * gt) / 100),2).ToString();
-            txtCGST.Text =  Math.Round(((Convert.ToDouble(ddlCGST.SelectedItem) * gt) / 100),2).ToString();
-            txtIGST.Text =  Math.Round(((Convert.ToDouble(ddlIGST.SelectedItem) * gt) / 100),2).ToString();
+            txtSGST.Text = Math.Round(((Convert.ToDouble(ddlSGST.SelectedItem) * gt) / 100), 2).ToString();
+            txtCGST.Text = Math.Round(((Convert.ToDouble(ddlCGST.SelectedItem) * gt) / 100), 2).ToString();
+            txtIGST.Text = Math.Round(((Convert.ToDouble(ddlIGST.SelectedItem) * gt) / 100), 2).ToString();
             sgst = Convert.ToDouble(txtSGST.Text);
             cgst = Convert.ToDouble(txtCGST.Text);
             igst = Convert.ToDouble(txtIGST.Text);
-            txtNetTotal.Text = Math.Round(gt + sgst + cgst + igst, 0, MidpointRounding.AwayFromZero).ToString() + ".00";
-            nt = gt + sgst + cgst + igst;
+            if (txtTCSPer.Text != "")
+            {
+                txtTCS.Text = Math.Round(((Convert.ToDouble(txtTCSPer.Text) * (gt + sgst + cgst + igst)) / 100), 2).ToString();
+                tcs = Convert.ToDouble(txtTCS.Text);
+            }
+            else
+            {
+                txtTCS.Text = "0";
+                txtTCSPer.Text = "0";
+            }
+            txtNetTotal.Text = Math.Round(gt + sgst + cgst + igst + tcs, 0, MidpointRounding.AwayFromZero).ToString() + ".00";
+            nt = gt + sgst + cgst + igst + tcs;
         }
-      
+
 
         private void dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -446,7 +444,7 @@ namespace GSTBill
             double gt = 0;
             for (int i = 0; i < dgv.Rows.Count; i++)
             {
-                dgv.Rows[i].Cells[6].Value = Math.Round((Convert.ToDouble(dgv.Rows[i].Cells[4].Value) * Convert.ToDouble(dgv.Rows[i].Cells[5].Value)),2);
+                dgv.Rows[i].Cells[6].Value = Math.Round((Convert.ToDouble(dgv.Rows[i].Cells[4].Value) * Convert.ToDouble(dgv.Rows[i].Cells[5].Value)), 2);
                 gt = gt + Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
 
             }
@@ -540,27 +538,11 @@ namespace GSTBill
             ddlCGST.SelectedIndex = 1;
             ddlIGST.SelectedIndex = 0;
             ddlFirm.SelectedIndex = 0;
-           // ddlMobileNo.SelectedIndex = 0;
+            // ddlMobileNo.SelectedIndex = 0;
             //ddlAddress.SelectedIndex = 0;
             //ddlGSTIN.SelectedIndex = 0;
             dt = DateTime.ParseExact(dtpInvoiceDate.Text, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             ddlFirm.Focus();
-            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceNo desc ", cn.cn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                if((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1)<10)
-                    txtInvoiceNo.Text = "00"+(Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else if ((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1) < 100)
-                    txtInvoiceNo.Text = "0" + (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else
-                    txtInvoiceNo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-
-            }
-            else
-                txtInvoiceNo.Text = "001";
 
             SqlCommand cmd2 = new SqlCommand("getSettings", cn.cn);
             cmd2.CommandType = CommandType.StoredProcedure;
@@ -571,11 +553,32 @@ namespace GSTBill
             {
                 HSN = ds2.Tables[0].Rows[0]["HSNCode"].ToString();
                 Printer = ds2.Tables[0].Rows[0]["PrinterName"].ToString();
+                Printer = ds2.Tables[0].Rows[0]["PrinterName"].ToString();
+                BillSeries = ds2.Tables[0].Rows[0]["BillSeries"].ToString();
             }
 
+            setNextInvoiceNo();
         }
 
-
+        public void setNextInvoiceNo()
+        {
+            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceNo desc ", cn.cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                int nextInvoiceNo = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString().Split('-')[1]) + 1;
+                if (nextInvoiceNo < 10)
+                    txtInvoiceNo.Text = BillSeries + "00" + nextInvoiceNo.ToString();
+                else if (nextInvoiceNo < 100)
+                    txtInvoiceNo.Text = BillSeries + "0" + nextInvoiceNo.ToString();
+                else
+                    txtInvoiceNo.Text = BillSeries + nextInvoiceNo.ToString();
+            }
+            else
+                txtInvoiceNo.Text = BillSeries + "001";
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -596,13 +599,32 @@ namespace GSTBill
             {
                 reset();
             }
-            else if (e.KeyCode == Keys.Enter && ddlBilledTo.Focused==false)
+            else if (e.KeyCode == Keys.Enter && ddlBilledTo.Focused == false)
             {
-                    SendKeys.Send("{TAB}");
+                SendKeys.Send("{TAB}");
             }
             else if (e.KeyCode == Keys.U && e.Shift && e.Control)
             {
                 btnUpdateAll_Click(sender, e);
+            }
+        }
+
+        private void txtTCSPer_TextChanged(object sender, EventArgs e)
+        {
+            NetTotal();
+        }
+
+        private void txtTCSPer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
 
@@ -624,8 +646,6 @@ namespace GSTBill
                 e.Handled = true;
             }
         }
-
-
 
         private void txtInvoiceNo_TextChanged(object sender, EventArgs e)
         {
@@ -658,7 +678,7 @@ namespace GSTBill
 
         private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            dgv.Rows[dgv.Rows.Count-1].Cells[2].Value = HSN;
+            dgv.Rows[dgv.Rows.Count - 1].Cells[2].Value = HSN;
         }
 
         public void btnPrint_Click(object sender, EventArgs e)
@@ -672,12 +692,12 @@ namespace GSTBill
                     if (cn.cn.State == ConnectionState.Closed)
                         cn.cn.Open();
 
-                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                     DataSet ds2 = new DataSet();
                     da2.Fill(ds2);
 
-                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
                     DataSet ds3 = new DataSet();
                     da3.Fill(ds3);
@@ -690,7 +710,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -721,7 +741,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -746,7 +766,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("SalesID", ds3.Tables[0].Rows[0][0].ToString()).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
@@ -761,11 +781,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
@@ -786,7 +821,7 @@ namespace GSTBill
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
@@ -801,11 +836,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
@@ -908,12 +958,12 @@ namespace GSTBill
             {
                 MessageBox.Show("No Items in the bill!", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-               
+
         }
 
         public void btnSave_Click(object sender, EventArgs e)
         {
-            if (dgv.Rows.Count-1 > 0)
+            if (dgv.Rows.Count - 1 > 0)
             {
                 DialogResult result = MessageBox.Show("Do you want to just save the bill? ", "Liberty Softwares", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.Yes)
@@ -922,12 +972,12 @@ namespace GSTBill
                     if (cn.cn.State == ConnectionState.Closed)
                         cn.cn.Open();
 
-                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                     DataSet ds2 = new DataSet();
                     da2.Fill(ds2);
 
-                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
                     DataSet ds3 = new DataSet();
                     da3.Fill(ds3);
@@ -940,7 +990,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -970,7 +1020,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -995,8 +1045,8 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("SalesID", ds3.Tables[0].Rows[0][0].ToString()).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.DateTime;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
@@ -1010,11 +1060,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
@@ -1035,8 +1100,8 @@ namespace GSTBill
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.DateTime;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
@@ -1050,11 +1115,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
@@ -1154,10 +1234,10 @@ namespace GSTBill
             dgv.Rows.Clear();
             SqlCommand cmd = new SqlCommand("SalesMasterView", cn.cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-            SqlDataAdapter da=new SqlDataAdapter(cmd);
-            DataSet ds=new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
             da.Fill(ds);
 
             if (ds.Tables[0].Rows.Count == 1)
@@ -1178,24 +1258,34 @@ namespace GSTBill
                 txtVehicle.Text = ds.Tables[0].Rows[0][15].ToString();
                 dtpSupplyDate.Text = ds.Tables[0].Rows[0][16].ToString();
                 txtSupplyPlace.Text = ds.Tables[0].Rows[0][17].ToString();
-                txtSGST.Text = ds.Tables[0].Rows[0][18].ToString();
-                txtCGST.Text = ds.Tables[0].Rows[0][19].ToString();
-                txtIGST.Text = ds.Tables[0].Rows[0][20].ToString();
-                txtDiscAmt.Text = ds.Tables[0].Rows[0][21].ToString();
-                if (ds.Tables[0].Rows[0][22].ToString().Length > 0)
+                if (ds.Tables[0].Rows[0][18].ToString() == "Meters")
                 {
-                    nt = Convert.ToDouble(ds.Tables[0].Rows[0][22].ToString().Substring(0, ds.Tables[0].Rows[0][22].ToString().Length - 3));
-                    txtNetTotal.Text = Math.Round(nt, 0, MidpointRounding.AwayFromZero).ToString() + ".00";
+                    rbtnMeter.Checked = true;
                 }
-                    dtpDueDate.Text = ds.Tables[0].Rows[0][23].ToString();
-                txtBank.Text = ds.Tables[0].Rows[0][24].ToString();
-                txtChequeNo.Text = ds.Tables[0].Rows[0][25].ToString();
-                txtChequeDate.Text = ds.Tables[0].Rows[0][26].ToString();
-                txtAmount.Text = ds.Tables[0].Rows[0][27].ToString();
+                else
+                {
+                    rbtnKG.Checked = true;
+                }
+                txtSGST.Text = ds.Tables[0].Rows[0][20].ToString();
+                ddlSGST.Text = ds.Tables[0].Rows[0][21].ToString();
+                txtCGST.Text = ds.Tables[0].Rows[0][22].ToString();
+                ddlCGST.Text = ds.Tables[0].Rows[0][23].ToString();
+                txtIGST.Text = ds.Tables[0].Rows[0][24].ToString();
+                ddlIGST.Text = ds.Tables[0].Rows[0][25].ToString();
+                txtTCS.Text = ds.Tables[0].Rows[0][26].ToString();
+                txtTCSPer.Text = ds.Tables[0].Rows[0][27].ToString();
+                txtDiscAmt.Text = ds.Tables[0].Rows[0][28].ToString();
+                txtDiscPer.Text = ds.Tables[0].Rows[0][29].ToString();
+                txtNetTotal.Text = ds.Tables[0].Rows[0][30].ToString();
+                dtpDueDate.Text = ds.Tables[0].Rows[0][31].ToString();
+                txtBank.Text = ds.Tables[0].Rows[0][32].ToString();
+                txtChequeNo.Text = ds.Tables[0].Rows[0][33].ToString();
+                txtChequeDate.Text = ds.Tables[0].Rows[0][34].ToString();
+                txtAmount.Text = ds.Tables[0].Rows[0][35].ToString();
 
                 SqlCommand cmd2 = new SqlCommand("SalesDetailView", cn.cn);
                 cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                cmd2.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                 cmd2.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataSet ds2 = new DataSet();
@@ -1214,22 +1304,7 @@ namespace GSTBill
 
         private void ddlFirm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceNo desc ",cn.cn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                if ((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1) < 10)
-                    txtInvoiceNo.Text = "00" + (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else if ((Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1) < 100)
-                    txtInvoiceNo.Text = "0" + (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-                else
-                    txtInvoiceNo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
-
-            }
-            else
-                txtInvoiceNo.Text = "001";
+            setNextInvoiceNo();
         }
 
         private void dtpInvoiceDate_ValueChanged(object sender, EventArgs e)
@@ -1246,17 +1321,17 @@ namespace GSTBill
             if (dsa.Tables[0].Rows.Count > 0)
                 for (int j = 0; j < dsa.Tables[0].Rows.Count; j++)
                 {
-                    txtInvoiceNo.Text = (Convert.ToInt32(dsa.Tables[0].Rows[j][0].ToString())).ToString();
+                    txtInvoiceNo.Text = dsa.Tables[0].Rows[j][0].ToString();
                     txtInvoiceNo_Leave(sender, e);
                     if (cn.cn.State == ConnectionState.Closed)
                         cn.cn.Open();
 
-                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                     DataSet ds2 = new DataSet();
                     da2.Fill(ds2);
 
-                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo=" + txtInvoiceNo.Text + " and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                    SqlCommand cmd3 = new SqlCommand("select SalesID from SalesMaster where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
                     SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
                     DataSet ds3 = new DataSet();
                     da3.Fill(ds3);
@@ -1269,7 +1344,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -1299,7 +1374,7 @@ namespace GSTBill
                             SqlCommand cmd = new SqlCommand("SalesDetailInsert", cn.cn);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Item", dgv.Rows[i].Cells[1].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("HSNCode", dgv.Rows[i].Cells[2].Value.ToString()).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Taka", dgv.Rows[i].Cells[3].Value.ToString()).DbType = DbType.String;
@@ -1324,8 +1399,8 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("SalesID", ds3.Tables[0].Rows[0][0].ToString()).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.DateTime;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
@@ -1339,11 +1414,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
@@ -1364,8 +1454,8 @@ namespace GSTBill
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
                             cmd.Parameters.AddWithValue("PartyID", ddlBilledTo.SelectedValue).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.Int64;
-                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.DateTime;
+                            cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
@@ -1379,11 +1469,26 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("VehicleNo", txtVehicle.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyDate", dtpSupplyDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("SupplyPlace", txtSupplyPlace.Text).DbType = DbType.String;
+                            if (rbtnMeter.Checked == true)
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnMeter.Text).DbType = DbType.String;
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("Unit", rbtnKG.Text).DbType = DbType.String;
+                            }
+                            cmd.Parameters.AddWithValue("GrossAmount", txtGrossTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("SGST", txtSGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("SGSTPer", ddlSGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("CGST", txtCGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("CGSTPer", ddlCGST.SelectedItem).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("IGST", txtIGST.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("IGSTPer", ddlIGST.SelectedItem).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCS", txtTCS.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("TCSPer", txtTCSPer.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("Disc", txtDiscAmt.Text).DbType = DbType.Decimal;
-                            cmd.Parameters.AddWithValue("NetAmount", nt).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("DiscPer", txtDiscPer.Text).DbType = DbType.Decimal;
+                            cmd.Parameters.AddWithValue("NetAmount", txtNetTotal.Text).DbType = DbType.Decimal;
                             cmd.Parameters.AddWithValue("DueDate", dtpDueDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Bank", txtBank.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("ChequeNo", txtChequeNo.Text).DbType = DbType.String;
