@@ -368,7 +368,7 @@ namespace GSTBill
 
             e.Graphics.DrawString(BankName.ToUpper(), font4, Brushes.Black, 20, 890);
             e.Graphics.DrawString("A/C No   : " + AccountNo.ToUpper(), font4, Brushes.Black, 20, 910);
-            e.Graphics.DrawString("IFSC      : " + AccountNo.ToUpper(), font4, Brushes.Black, 20, 930);
+            e.Graphics.DrawString("IFSC      : " + IFSC.ToUpper(), font4, Brushes.Black, 20, 930);
 
 
             e.Graphics.DrawString("GROSS AMOUNT", font0, Brushes.Black, 390, 830);
