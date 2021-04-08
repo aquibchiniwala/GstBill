@@ -86,3 +86,22 @@ D:\Personal\GSTBill\GSTBill\obj\Debug\GSTBill.csproj.CoreCompileInputs.cache
 D:\Personal\GSTBill\GSTBill\obj\Debug\GSTBill.exe
 D:\Personal\GSTBill\GSTBill\obj\Debug\GSTBill.pdb
 D:\Personal\GSTBill\GSTBill\obj\Debug\GSTBill.csprojAssemblyReference.cache
+D:\GST BILL SOFT 2021\GstBill\GSTBill\bin\Debug\GSTBill.exe.config
+D:\GST BILL SOFT 2021\GstBill\GSTBill\bin\Debug\GSTBill.exe
+D:\GST BILL SOFT 2021\GstBill\GSTBill\bin\Debug\GSTBill.pdb
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.csprojAssemblyReference.cache
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.ExportToExcel.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.FirmMaster.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.PurchaseDetail.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.SalesDetail.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.Login.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.Registration.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.Menu.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.PartyMaster.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.Properties.Resources.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.SupplierMaster.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.rptSales.resources
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.cache
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.csproj.CoreCompileInputs.cache
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.exe
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.pdb

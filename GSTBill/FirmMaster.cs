@@ -35,7 +35,7 @@ namespace GSTBill
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "" && txtBankName.Text!="" && txtAccountNo.Text!="" && txtIFSC.Text!="")
+            if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "" && txtBankName.Text != "" && txtAccountNo.Text != "" && txtIFSC.Text != "")
             {
                 if (txtFirmName.Tag != null)
                 {
@@ -55,9 +55,27 @@ namespace GSTBill
                     cmd.Dispose();
                     if (cn.cn.State == ConnectionState.Open)
                         cn.cn.Close();
-                    this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                     if (oldname != txtFirmName.Text)
-                    System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" +oldname,Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                    {
+                        if (!System.IO.Directory.Exists(Application.StartupPath + "\\Firms\\" + oldname))
+                        {
+                            System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                            System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
+                        }
+                        else
+                        {
+                            System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" + oldname, Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                        }
+                    }
+                    else
+                    {
+                        if (!System.IO.Directory.Exists(Application.StartupPath + "\\Firms\\" + txtFirmName.Text))
+                        {
+                            System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                            System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
+                        }
+                    }
+                    this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                     cn.UpdateMessage();
                 }
                 else
@@ -79,7 +97,7 @@ namespace GSTBill
                         cn.cn.Close();
                     this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                     System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
-                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text+"\\Reports");
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
                     cn.InsertMessage();
                 }
                 reset();
@@ -200,18 +218,18 @@ namespace GSTBill
             else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
                 dgvView.Focus();
-                if (dgvView.CurrentRow != null)
-                {
-                    txtFirmName.Tag = dgvView.CurrentRow.Cells[0].Value.ToString();
-                    txtFirmName.Text = dgvView.CurrentRow.Cells[1].Value.ToString();
-                    oldname = dgvView.CurrentRow.Cells[1].Value.ToString();
-                    txtAddress.Text = dgvView.CurrentRow.Cells[2].Value.ToString();
-                    txtMobileNo.Text = dgvView.CurrentRow.Cells[3].Value.ToString();
-                    txtGSTNo.Text = dgvView.CurrentRow.Cells[4].Value.ToString();
-                    txtBankName.Text = dgvView.CurrentRow.Cells[5].Value.ToString();
-                    txtAccountNo.Text = dgvView.CurrentRow.Cells[6].Value.ToString();
-                    txtIFSC.Text = dgvView.CurrentRow.Cells[7].Value.ToString();
-                }
+                //if (dgvView.CurrentRow != null)
+                //{
+                //    txtFirmName.Tag = dgvView.CurrentRow.Cells[0].Value.ToString();
+                //    txtFirmName.Text = dgvView.CurrentRow.Cells[1].Value.ToString();
+                //    oldname = dgvView.CurrentRow.Cells[1].Value.ToString();
+                //    txtAddress.Text = dgvView.CurrentRow.Cells[2].Value.ToString();
+                //    txtMobileNo.Text = dgvView.CurrentRow.Cells[3].Value.ToString();
+                //    txtGSTNo.Text = dgvView.CurrentRow.Cells[4].Value.ToString();
+                //    txtBankName.Text = dgvView.CurrentRow.Cells[5].Value.ToString();
+                //    txtAccountNo.Text = dgvView.CurrentRow.Cells[6].Value.ToString();
+                //    txtIFSC.Text = dgvView.CurrentRow.Cells[7].Value.ToString();
+                //}
             }
             else if (e.KeyCode == Keys.S && e.Control)
             {
@@ -235,9 +253,27 @@ namespace GSTBill
                         cmd.Dispose();
                         if (cn.cn.State == ConnectionState.Open)
                             cn.cn.Close();
+                        if (oldname != txtFirmName.Text)
+                        {
+                            if (!System.IO.Directory.Exists(Application.StartupPath + "\\Firms\\" + oldname))
+                            {
+                                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
+                            }
+                            else
+                            {
+                                System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" + oldname, Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                            }
+                        }
+                        else
+                        {
+                            if (!System.IO.Directory.Exists(Application.StartupPath + "\\Firms\\" + txtFirmName.Text))
+                            {
+                                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
+                            }
+                        }
                         this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
-                        if (oldname!=txtFirmName.Text)
-                            System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" + oldname, Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
                         cn.UpdateMessage();
                     }
                     else
@@ -259,7 +295,7 @@ namespace GSTBill
                             cn.cn.Close();
                         this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                         System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
-                        System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text +"\\Reports");
+                        System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text + "\\Reports");
                         cn.InsertMessage();
                     }
                     reset();
