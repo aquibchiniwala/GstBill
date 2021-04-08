@@ -57,7 +57,7 @@ namespace GSTBill
                         cn.cn.Close();
                     this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                     if (oldname != txtFirmName.Text)
-                    System.IO.Directory.Move(Application.StartupPath + "/Firms/" +oldname,Application.StartupPath + "/Firms/" + txtFirmName.Text);
+                    System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" +oldname,Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
                     cn.UpdateMessage();
                 }
                 else
@@ -78,8 +78,8 @@ namespace GSTBill
                     if (cn.cn.State == ConnectionState.Open)
                         cn.cn.Close();
                     this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
-                    System.IO.Directory.CreateDirectory(Application.StartupPath + "/Firms/" + txtFirmName.Text);
-                    System.IO.Directory.CreateDirectory(Application.StartupPath + "/Firms/" + txtFirmName.Text+"/Reports");
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text+"\\Reports");
                     cn.InsertMessage();
                 }
                 reset();
@@ -237,7 +237,7 @@ namespace GSTBill
                             cn.cn.Close();
                         this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
                         if (oldname!=txtFirmName.Text)
-                            System.IO.Directory.Move(Application.StartupPath + "/Firms/" + oldname, Application.StartupPath + "/Firms/" + txtFirmName.Text);
+                            System.IO.Directory.Move(Application.StartupPath + "\\Firms\\" + oldname, Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
                         cn.UpdateMessage();
                     }
                     else
@@ -258,8 +258,8 @@ namespace GSTBill
                         if (cn.cn.State == ConnectionState.Open)
                             cn.cn.Close();
                         this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
-                        System.IO.Directory.CreateDirectory(Application.StartupPath + "/Firms/" + txtFirmName.Text);
-                        System.IO.Directory.CreateDirectory(Application.StartupPath + "/Firms/" + txtFirmName.Text + "/Reports");
+                        System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text);
+                        System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Firms\\" + txtFirmName.Text +"\\Reports");
                         cn.InsertMessage();
                     }
                     reset();

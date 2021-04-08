@@ -241,8 +241,8 @@ namespace GSTBill
         {
             string INO = dgv.CurrentRow.Cells[1].Value.ToString();
             string Firm = dgv.CurrentRow.Cells[0].Value.ToString();
-            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "//Firms//" + Firm + "//" + INO + ".xps"))
-                System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + "//Firms//" + Firm + "//" + INO + ".xps");
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\Firms\\" + Firm + "\\" + INO + ".xps"))
+                System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + "\\Firms\\" + Firm + "\\" + INO + ".xps");
 
         }
 

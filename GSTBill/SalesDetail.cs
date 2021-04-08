@@ -424,8 +424,7 @@ namespace GSTBill
             e.Graphics.DrawString("Subject To Surat Jurisdiction.", font4, Brushes.Black, 20, 1060);
 
             e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 1000);
-            e.Graphics.DrawString("for, ", font0, Brushes.Black, 540, 1000);
-            e.Graphics.DrawString(ddlFirm.Text + ".", font3, Brushes.Black, 570, 1000);
+            e.Graphics.DrawString("for, "+ddlFirm.Text, font3, Brushes.Black, 470, 1000);
             e.Graphics.DrawString("Authorised Signatory.", font3, Brushes.Black, 570, 1060);
 
 
