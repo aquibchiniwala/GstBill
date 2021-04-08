@@ -28,11 +28,14 @@ namespace GSTBill
             txtMobileNo.Text = "";
             txtAddress.Text = "";
             txtGSTNo.Text = "";
+            txtBankName.Text = "";
+            txtAccountNo.Text = "";
+            txtIFSC.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "")
+            if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "" && txtBankName.Text!="" && txtAccountNo.Text!="" && txtIFSC.Text!="")
             {
                 if (txtFirmName.Tag != null)
                 {
@@ -45,6 +48,9 @@ namespace GSTBill
                     cmd.Parameters.AddWithValue("MobileNo", txtMobileNo.Text).DbType = DbType.String;
                     cmd.Parameters.AddWithValue("Address", txtAddress.Text).DbType = DbType.String;
                     cmd.Parameters.AddWithValue("GSTIN", txtGSTNo.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("BankName", txtBankName.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("AccountNo", txtAccountNo.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("IFSC", txtIFSC.Text).DbType = DbType.String;
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                     if (cn.cn.State == ConnectionState.Open)
@@ -64,6 +70,9 @@ namespace GSTBill
                     cmd.Parameters.AddWithValue("MobileNo", txtMobileNo.Text).DbType = DbType.String;
                     cmd.Parameters.AddWithValue("Address", txtAddress.Text).DbType = DbType.String;
                     cmd.Parameters.AddWithValue("GSTIN", txtGSTNo.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("BankName", txtBankName.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("AccountNo", txtAccountNo.Text).DbType = DbType.String;
+                    cmd.Parameters.AddWithValue("IFSC", txtIFSC.Text).DbType = DbType.String;
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                     if (cn.cn.State == ConnectionState.Open)
@@ -95,11 +104,27 @@ namespace GSTBill
                 MessageBox.Show("Enter GSTIN", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtGSTNo.Focus();
             }
-
+            else if (txtBankName.Text == "")
+            {
+                MessageBox.Show("Enter Bank Name", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBankName.Focus();
+            }
+            else if (txtAccountNo.Text == "")
+            {
+                MessageBox.Show("Enter Bank Account Number", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAccountNo.Focus();
+            }
+            else if (txtIFSC.Text == "")
+            {
+                MessageBox.Show("Enter Bank IFSC Code", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtIFSC.Focus();
+            }
         }
 
         private void FirmMaster_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsFirmMasterView.FirmMasterView' table. You can move, or remove it, as needed.
+            this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
             // TODO: This line of code loads data into the 'dsFirmMasterView.FirmMasterView' table. You can move, or remove it, as needed.
             this.firmMasterViewTableAdapter.Fill(this.dsFirmMasterView.FirmMasterView);
 
@@ -122,6 +147,9 @@ namespace GSTBill
                     txtAddress.Text = dgvView.CurrentRow.Cells[2].Value.ToString();
                     txtMobileNo.Text = dgvView.CurrentRow.Cells[3].Value.ToString();
                     txtGSTNo.Text = dgvView.CurrentRow.Cells[4].Value.ToString();
+                    txtBankName.Text = dgvView.CurrentRow.Cells[5].Value.ToString();
+                    txtAccountNo.Text = dgvView.CurrentRow.Cells[6].Value.ToString();
+                    txtIFSC.Text = dgvView.CurrentRow.Cells[7].Value.ToString();
                 }
             }
         }
@@ -180,11 +208,14 @@ namespace GSTBill
                     txtAddress.Text = dgvView.CurrentRow.Cells[2].Value.ToString();
                     txtMobileNo.Text = dgvView.CurrentRow.Cells[3].Value.ToString();
                     txtGSTNo.Text = dgvView.CurrentRow.Cells[4].Value.ToString();
+                    txtBankName.Text = dgvView.CurrentRow.Cells[5].Value.ToString();
+                    txtAccountNo.Text = dgvView.CurrentRow.Cells[6].Value.ToString();
+                    txtIFSC.Text = dgvView.CurrentRow.Cells[7].Value.ToString();
                 }
             }
             else if (e.KeyCode == Keys.S && e.Control)
             {
-                if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "")
+                if (txtFirmName.Text != "" && txtMobileNo.Text != "" && txtAddress.Text != "" && txtGSTNo.Text != "" && txtBankName.Text != "" && txtAccountNo.Text != "" && txtIFSC.Text != "")
                 {
                     if (txtFirmName.Tag != null)
                     {
@@ -197,6 +228,9 @@ namespace GSTBill
                         cmd.Parameters.AddWithValue("MobileNo", txtMobileNo.Text).DbType = DbType.String;
                         cmd.Parameters.AddWithValue("Address", txtAddress.Text).DbType = DbType.String;
                         cmd.Parameters.AddWithValue("GSTIN", txtGSTNo.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("BankName", txtBankName.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("AccountNo", txtAccountNo.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("IFSC", txtIFSC.Text).DbType = DbType.String;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
                         if (cn.cn.State == ConnectionState.Open)
@@ -216,6 +250,9 @@ namespace GSTBill
                         cmd.Parameters.AddWithValue("MobileNo", txtMobileNo.Text).DbType = DbType.String;
                         cmd.Parameters.AddWithValue("Address", txtAddress.Text).DbType = DbType.String;
                         cmd.Parameters.AddWithValue("GSTIN", txtGSTNo.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("BankName", txtBankName.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("AccountNo", txtAccountNo.Text).DbType = DbType.String;
+                        cmd.Parameters.AddWithValue("IFSC", txtIFSC.Text).DbType = DbType.String;
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
                         if (cn.cn.State == ConnectionState.Open)
@@ -246,6 +283,21 @@ namespace GSTBill
                 {
                     MessageBox.Show("Enter GSTIN", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtGSTNo.Focus();
+                }
+                else if (txtBankName.Text == "")
+                {
+                    MessageBox.Show("Enter Bank Name", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBankName.Focus();
+                }
+                else if (txtAccountNo.Text == "")
+                {
+                    MessageBox.Show("Enter Bank Account Number", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAccountNo.Focus();
+                }
+                else if (txtIFSC.Text == "")
+                {
+                    MessageBox.Show("Enter Bank IFSC Code", "Liberty Softwares", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtIFSC.Focus();
                 }
             }
         }

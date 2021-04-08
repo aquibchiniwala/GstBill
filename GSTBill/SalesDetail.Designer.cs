@@ -74,6 +74,8 @@ namespace GSTBill
             this.txtDelState = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.rbtnKG = new System.Windows.Forms.RadioButton();
+            this.rbtnMeter = new System.Windows.Forms.RadioButton();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.txtSupplyPlace = new System.Windows.Forms.TextBox();
@@ -88,6 +90,7 @@ namespace GSTBill
             this.label33 = new System.Windows.Forms.Label();
             this.txtState = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.grpUnit = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -118,13 +121,6 @@ namespace GSTBill
             this.txtDiscPer = new System.Windows.Forms.TextBox();
             this.txtNetTotal = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.METRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TAKA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HSNCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PARTICULARS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSGST = new System.Windows.Forms.TextBox();
             this.txtCGST = new System.Windows.Forms.TextBox();
             this.txtIGST = new System.Windows.Forms.TextBox();
@@ -145,9 +141,13 @@ namespace GSTBill
             this.label54 = new System.Windows.Forms.Label();
             this.txtTCSPer = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.rbtnMeter = new System.Windows.Forms.RadioButton();
-            this.rbtnKG = new System.Windows.Forms.RadioButton();
-            this.grpUnit = new System.Windows.Forms.GroupBox();
+            this.SNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PARTICULARS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HSNCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listAllFirmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsListAllFirm)).BeginInit();
             this.panel1.SuspendLayout();
@@ -699,6 +699,30 @@ namespace GSTBill
             this.panel3.Size = new System.Drawing.Size(1174, 107);
             this.panel3.TabIndex = 72;
             // 
+            // rbtnKG
+            // 
+            this.rbtnKG.AutoSize = true;
+            this.rbtnKG.Location = new System.Drawing.Point(206, 65);
+            this.rbtnKG.Name = "rbtnKG";
+            this.rbtnKG.Size = new System.Drawing.Size(65, 24);
+            this.rbtnKG.TabIndex = 85;
+            this.rbtnKG.Text = "KGs";
+            this.rbtnKG.UseVisualStyleBackColor = true;
+            this.rbtnKG.CheckedChanged += new System.EventHandler(this.rbtnKG_CheckedChanged);
+            // 
+            // rbtnMeter
+            // 
+            this.rbtnMeter.AutoSize = true;
+            this.rbtnMeter.Checked = true;
+            this.rbtnMeter.Location = new System.Drawing.Point(84, 65);
+            this.rbtnMeter.Name = "rbtnMeter";
+            this.rbtnMeter.Size = new System.Drawing.Size(83, 24);
+            this.rbtnMeter.TabIndex = 85;
+            this.rbtnMeter.TabStop = true;
+            this.rbtnMeter.Text = "Meters";
+            this.rbtnMeter.UseVisualStyleBackColor = true;
+            this.rbtnMeter.CheckedChanged += new System.EventHandler(this.rbtnMeter_CheckedChanged);
+            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -861,6 +885,15 @@ namespace GSTBill
             this.label29.Size = new System.Drawing.Size(57, 22);
             this.label29.TabIndex = 61;
             this.label29.Text = "State";
+            // 
+            // grpUnit
+            // 
+            this.grpUnit.Location = new System.Drawing.Point(24, 50);
+            this.grpUnit.Name = "grpUnit";
+            this.grpUnit.Size = new System.Drawing.Size(274, 51);
+            this.grpUnit.TabIndex = 86;
+            this.grpUnit.TabStop = false;
+            this.grpUnit.Text = "Unit";
             // 
             // label25
             // 
@@ -1239,8 +1272,8 @@ namespace GSTBill
             this.SNO,
             this.PARTICULARS,
             this.HSNCODE,
-            this.TAKA,
-            this.METRES,
+            this.SKU,
+            this.UNIT,
             this.RATE,
             this.AMOUNT});
             this.dgv.Location = new System.Drawing.Point(18, 24);
@@ -1256,56 +1289,6 @@ namespace GSTBill
             this.dgv.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_RowEnter);
             this.dgv.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_RowPostPaint);
             this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
-            // 
-            // AMOUNT
-            // 
-            this.AMOUNT.HeaderText = "AMOUNT";
-            this.AMOUNT.MinimumWidth = 8;
-            this.AMOUNT.Name = "AMOUNT";
-            this.AMOUNT.Width = 150;
-            // 
-            // RATE
-            // 
-            this.RATE.HeaderText = "RATE";
-            this.RATE.MinimumWidth = 8;
-            this.RATE.Name = "RATE";
-            this.RATE.Width = 70;
-            // 
-            // METRES
-            // 
-            this.METRES.HeaderText = "METRES/KGS";
-            this.METRES.MinimumWidth = 8;
-            this.METRES.Name = "METRES";
-            this.METRES.Width = 70;
-            // 
-            // TAKA
-            // 
-            this.TAKA.HeaderText = "TAKA";
-            this.TAKA.MinimumWidth = 8;
-            this.TAKA.Name = "TAKA";
-            this.TAKA.Width = 70;
-            // 
-            // HSNCODE
-            // 
-            this.HSNCODE.HeaderText = "HSNCODE";
-            this.HSNCODE.MinimumWidth = 8;
-            this.HSNCODE.Name = "HSNCODE";
-            this.HSNCODE.Width = 150;
-            // 
-            // PARTICULARS
-            // 
-            this.PARTICULARS.HeaderText = "PARTICULARS";
-            this.PARTICULARS.MinimumWidth = 8;
-            this.PARTICULARS.Name = "PARTICULARS";
-            this.PARTICULARS.Width = 300;
-            // 
-            // SNO
-            // 
-            this.SNO.HeaderText = "SNO";
-            this.SNO.MinimumWidth = 8;
-            this.SNO.Name = "SNO";
-            this.SNO.ReadOnly = true;
-            this.SNO.Width = 40;
             // 
             // txtSGST
             // 
@@ -1578,36 +1561,55 @@ namespace GSTBill
             this.panel4.Size = new System.Drawing.Size(1174, 459);
             this.panel4.TabIndex = 72;
             // 
-            // rbtnMeter
+            // SNO
             // 
-            this.rbtnMeter.AutoSize = true;
-            this.rbtnMeter.Checked = true;
-            this.rbtnMeter.Location = new System.Drawing.Point(84, 65);
-            this.rbtnMeter.Name = "rbtnMeter";
-            this.rbtnMeter.Size = new System.Drawing.Size(83, 24);
-            this.rbtnMeter.TabIndex = 85;
-            this.rbtnMeter.TabStop = true;
-            this.rbtnMeter.Text = "Meters";
-            this.rbtnMeter.UseVisualStyleBackColor = true;
+            this.SNO.HeaderText = "SNO";
+            this.SNO.MinimumWidth = 8;
+            this.SNO.Name = "SNO";
+            this.SNO.ReadOnly = true;
+            this.SNO.Width = 40;
             // 
-            // rbtnKG
+            // PARTICULARS
             // 
-            this.rbtnKG.AutoSize = true;
-            this.rbtnKG.Location = new System.Drawing.Point(206, 65);
-            this.rbtnKG.Name = "rbtnKG";
-            this.rbtnKG.Size = new System.Drawing.Size(65, 24);
-            this.rbtnKG.TabIndex = 85;
-            this.rbtnKG.Text = "KGs";
-            this.rbtnKG.UseVisualStyleBackColor = true;
+            this.PARTICULARS.HeaderText = "PARTICULARS";
+            this.PARTICULARS.MinimumWidth = 8;
+            this.PARTICULARS.Name = "PARTICULARS";
+            this.PARTICULARS.Width = 300;
             // 
-            // grpUnit
+            // HSNCODE
             // 
-            this.grpUnit.Location = new System.Drawing.Point(24, 50);
-            this.grpUnit.Name = "grpUnit";
-            this.grpUnit.Size = new System.Drawing.Size(274, 51);
-            this.grpUnit.TabIndex = 86;
-            this.grpUnit.TabStop = false;
-            this.grpUnit.Text = "Unit";
+            this.HSNCODE.HeaderText = "HSNCODE";
+            this.HSNCODE.MinimumWidth = 8;
+            this.HSNCODE.Name = "HSNCODE";
+            this.HSNCODE.Width = 150;
+            // 
+            // SKU
+            // 
+            this.SKU.HeaderText = "TAAKA";
+            this.SKU.MinimumWidth = 8;
+            this.SKU.Name = "SKU";
+            this.SKU.Width = 70;
+            // 
+            // UNIT
+            // 
+            this.UNIT.HeaderText = "METRES";
+            this.UNIT.MinimumWidth = 8;
+            this.UNIT.Name = "UNIT";
+            this.UNIT.Width = 70;
+            // 
+            // RATE
+            // 
+            this.RATE.HeaderText = "RATE";
+            this.RATE.MinimumWidth = 8;
+            this.RATE.Name = "RATE";
+            this.RATE.Width = 70;
+            // 
+            // AMOUNT
+            // 
+            this.AMOUNT.HeaderText = "AMOUNT";
+            this.AMOUNT.MinimumWidth = 8;
+            this.AMOUNT.Name = "AMOUNT";
+            this.AMOUNT.Width = 150;
             // 
             // SalesDetail
             // 
@@ -1748,13 +1750,6 @@ namespace GSTBill
         private System.Windows.Forms.TextBox txtDiscPer;
         private System.Windows.Forms.TextBox txtNetTotal;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PARTICULARS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HSNCODE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TAKA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn METRES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
         private System.Windows.Forms.TextBox txtSGST;
         private System.Windows.Forms.TextBox txtCGST;
         private System.Windows.Forms.TextBox txtIGST;
@@ -1776,6 +1771,13 @@ namespace GSTBill
         private System.Windows.Forms.TextBox txtTCSPer;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox grpUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PARTICULARS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HSNCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UNIT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
     }
 }
 

@@ -16,7 +16,7 @@ namespace GSTBill
     public partial class SalesDetail : Form
     {
         Connectivity cn = new Connectivity();
-        string FirmName, Address, MobileNo, GSTIN, HSN, Printer, BillSeries;
+        string FirmName, Address, MobileNo, GSTIN, BankName, AccountNo, IFSC, HSN, Printer, BillSeries;
         double gt, sgst, cgst, igst, tcs, nt;
         int flag = 0, INo;
         DateTime dt;
@@ -129,6 +129,10 @@ namespace GSTBill
             Address = ds.Tables[0].Rows[0][2].ToString();
             MobileNo = ds.Tables[0].Rows[0][3].ToString();
             GSTIN = ds.Tables[0].Rows[0][4].ToString();
+            BankName = ds.Tables[0].Rows[0][5].ToString();
+            AccountNo = ds.Tables[0].Rows[0][6].ToString();
+            IFSC = ds.Tables[0].Rows[0][7].ToString();
+
 
             cmd.Dispose();
 
@@ -308,12 +312,20 @@ namespace GSTBill
 
                 e.Graphics.DrawString("|                                                                            |                                                                                             ", font0, Brushes.Black, 10, i + 460);
             }
-            for (int i = 350; i < 508; i = i + 10)
+            for (int i = 350; i < 515; i = i + 10)
             {
 
                 e.Graphics.DrawString("                                                                                                                                             |                   ", font0, Brushes.Black, 10, i + 460);
             }
-            e.Graphics.DrawString("   SNO     PARTICULARS                                    HSNCODE   TAAKA   METRES    RATE   AMOUNT   ", font3, Brushes.Black, 10, 470);
+
+            if (rbtnMeter.Checked == true)
+            {
+                e.Graphics.DrawString("   SNO     PARTICULARS                                    HSNCODE   TAAKA   METRES    RATE   AMOUNT   ", font3, Brushes.Black, 10, 470);
+            }
+            else
+            {
+                e.Graphics.DrawString("   SNO     PARTICULARS                                    HSNCODE   PIECES      KGS       RATE    AMOUNT   ", font3, Brushes.Black, 10, 470);
+            }
 
             e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 490);
             e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 810);
@@ -353,6 +365,12 @@ namespace GSTBill
 
             e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 865);
 
+
+            e.Graphics.DrawString(BankName.ToUpper(), font4, Brushes.Black, 20, 890);
+            e.Graphics.DrawString("A/C No   : " + AccountNo.ToUpper(), font4, Brushes.Black, 20, 910);
+            e.Graphics.DrawString("IFSC      : " + AccountNo.ToUpper(), font4, Brushes.Black, 20, 930);
+
+
             e.Graphics.DrawString("GROSS AMOUNT", font0, Brushes.Black, 390, 830);
             e.Graphics.DrawString(txtGrossTotal.Text, font0, Brushes.Black, 690, 830);
 
@@ -372,23 +390,40 @@ namespace GSTBill
             e.Graphics.DrawString(ddlIGST.Text + "%", font0, Brushes.Black, 630, 920);
             e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtIGST.Text), 2)).ToString(), font0, Brushes.Black, 690, 920);
 
-            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 930);
+            double netTotalBeforeTCS = nt - tcs;
+
+            e.Graphics.DrawString("ADD TCS on (" + netTotalBeforeTCS.ToString() + ")", font0, Brushes.Black, 390, 940);
+            e.Graphics.DrawString(txtTCSPer.Text + "%", font0, Brushes.Black, 630, 940);
+            e.Graphics.DrawString((Math.Round(Convert.ToDouble(txtTCS.Text), 2)).ToString(), font0, Brushes.Black, 690, 940);
+
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 950);
+
+            string amountInWords = ConvertNumbertoWords(Convert.ToInt32(Math.Round(Convert.ToDouble(txtNetTotal.Text), 0))) + " ONLY.";
+            if (amountInWords.Length < 60)
+            {
+                e.Graphics.DrawString(amountInWords, font5, Brushes.Black, 20, 970);
+            }
+            else
+            {
+                string line1 = amountInWords.Substring(0, 50) + "-";
+                string line2 = "-" + amountInWords.Substring(51);
+                e.Graphics.DrawString(line1, font5, Brushes.Black, 20, 965);
+                e.Graphics.DrawString(line2, font5, Brushes.Black, 20, 975);
+            }
 
 
-            e.Graphics.DrawString(ConvertNumbertoWords(Convert.ToInt32(Math.Round(Convert.ToDouble(txtNetTotal.Text), 0))) + " ONLY.", font5, Brushes.Black, 20, 950);
+            e.Graphics.DrawString("NET AMOUNT", font3, Brushes.Black, 390, 970);
+            e.Graphics.DrawString(txtNetTotal.Text, font3, Brushes.Black, 690, 970);
 
-            e.Graphics.DrawString("NET AMOUNT", font3, Brushes.Black, 390, 950);
-            e.Graphics.DrawString(txtNetTotal.Text, font3, Brushes.Black, 690, 950);
+            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 980);
 
-            e.Graphics.DrawString("__________________________________________________________________________________________________________________________", font1, Brushes.Black, 10, 960);
+            e.Graphics.DrawString("Terms & Conditions.", font4, Brushes.Black, 20, 1000);
+            e.Graphics.DrawString("Goods Once Sold Will Not Be Taken Back.", font4, Brushes.Black, 20, 1015);
+            e.Graphics.DrawString("No Guarantee Of Any Goods.", font4, Brushes.Black, 20, 1030);
+            e.Graphics.DrawString("Int.24% P.A Will Be Charged After Due Date.", font4, Brushes.Black, 20, 1045);
+            e.Graphics.DrawString("Subject To Surat Jurisdiction.", font4, Brushes.Black, 20, 1060);
 
-            e.Graphics.DrawString("Terms & Conditions.", font0, Brushes.Black, 20, 980);
-            e.Graphics.DrawString("Goods Once Sold Will Not Be Taken Back.", font0, Brushes.Black, 20, 1000);
-            e.Graphics.DrawString("No Guarantee Of Any Goods.", font0, Brushes.Black, 20, 1020);
-            e.Graphics.DrawString("Int.24% P.A Will Be Charged After Due Date.", font0, Brushes.Black, 20, 1040);
-            e.Graphics.DrawString("Subject To Surat Jurisdiction.", font0, Brushes.Black, 20, 1060);
-
-            e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 980);
+            e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 1000);
             e.Graphics.DrawString("for, ", font0, Brushes.Black, 540, 1000);
             e.Graphics.DrawString(ddlFirm.Text + ".", font3, Brushes.Black, 570, 1000);
             e.Graphics.DrawString("Authorised Signatory.", font3, Brushes.Black, 570, 1060);
@@ -429,7 +464,7 @@ namespace GSTBill
                 txtTCS.Text = "0";
                 txtTCSPer.Text = "0";
             }
-            txtNetTotal.Text = Math.Round(gt + sgst + cgst + igst + tcs, 0, MidpointRounding.AwayFromZero).ToString() + ".00";
+            txtNetTotal.Text = Math.Round(gt + sgst + cgst + igst + tcs, 0, MidpointRounding.AwayFromZero).ToString();
             nt = gt + sgst + cgst + igst + tcs;
         }
 
@@ -625,6 +660,34 @@ namespace GSTBill
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void rbtnMeter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnMeter.Checked == true)
+            {
+                dgv.Columns["SKU"].HeaderText = "TAAKA";
+                dgv.Columns["UNIT"].HeaderText = "METERS";
+            }
+            else
+            {
+                dgv.Columns["SKU"].HeaderText = "PIECES";
+                dgv.Columns["UNIT"].HeaderText = "KGS";
+            }
+        }
+
+        private void rbtnKG_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnMeter.Checked == true)
+            {
+                dgv.Columns["SKU"].HeaderText = "TAAKA";
+                dgv.Columns["UNIT"].HeaderText = "METERS";
+            }
+            else
+            {
+                dgv.Columns["SKU"].HeaderText = "PIECES";
+                dgv.Columns["UNIT"].HeaderText = "KGS";
             }
         }
 

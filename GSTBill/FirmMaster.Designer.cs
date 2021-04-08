@@ -31,13 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirmMaster));
             this.dgvView = new System.Windows.Forms.DataGridView();
-            this.firmIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobileNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gSTINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmMasterViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsFirmMasterView = new GSTBill.DatasetList.dsFirmMasterView();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGSTNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,18 +40,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFirmName = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtAccountNo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtIFSC = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtBankName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dsFirmMasterView = new GSTBill.DatasetList.dsFirmMasterView();
+            this.firmMasterViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.firmMasterViewTableAdapter = new GSTBill.DatasetList.dsFirmMasterViewTableAdapters.FirmMasterViewTableAdapter();
+            this.firmIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobileNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gSTINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iFSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firmMasterViewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFirmMasterView)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFirmMasterView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firmMasterViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvView
@@ -73,7 +82,10 @@
             this.firmNameDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
             this.mobileNoDataGridViewTextBoxColumn,
-            this.gSTINDataGridViewTextBoxColumn});
+            this.gSTINDataGridViewTextBoxColumn,
+            this.bankNameDataGridViewTextBoxColumn,
+            this.accountNoDataGridViewTextBoxColumn,
+            this.iFSCDataGridViewTextBoxColumn});
             this.dgvView.DataSource = this.firmMasterViewBindingSource;
             resources.ApplyResources(this.dgvView, "dgvView");
             this.dgvView.Name = "dgvView";
@@ -81,51 +93,6 @@
             this.dgvView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvView.TabStop = false;
             this.dgvView.SelectionChanged += new System.EventHandler(this.dgvView_SelectionChanged);
-            // 
-            // firmIDDataGridViewTextBoxColumn
-            // 
-            this.firmIDDataGridViewTextBoxColumn.DataPropertyName = "FirmID";
-            resources.ApplyResources(this.firmIDDataGridViewTextBoxColumn, "firmIDDataGridViewTextBoxColumn");
-            this.firmIDDataGridViewTextBoxColumn.Name = "firmIDDataGridViewTextBoxColumn";
-            this.firmIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmNameDataGridViewTextBoxColumn
-            // 
-            this.firmNameDataGridViewTextBoxColumn.DataPropertyName = "FirmName";
-            resources.ApplyResources(this.firmNameDataGridViewTextBoxColumn, "firmNameDataGridViewTextBoxColumn");
-            this.firmNameDataGridViewTextBoxColumn.Name = "firmNameDataGridViewTextBoxColumn";
-            this.firmNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            resources.ApplyResources(this.addressDataGridViewTextBoxColumn, "addressDataGridViewTextBoxColumn");
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mobileNoDataGridViewTextBoxColumn
-            // 
-            this.mobileNoDataGridViewTextBoxColumn.DataPropertyName = "MobileNo";
-            resources.ApplyResources(this.mobileNoDataGridViewTextBoxColumn, "mobileNoDataGridViewTextBoxColumn");
-            this.mobileNoDataGridViewTextBoxColumn.Name = "mobileNoDataGridViewTextBoxColumn";
-            this.mobileNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gSTINDataGridViewTextBoxColumn
-            // 
-            this.gSTINDataGridViewTextBoxColumn.DataPropertyName = "GSTIN";
-            resources.ApplyResources(this.gSTINDataGridViewTextBoxColumn, "gSTINDataGridViewTextBoxColumn");
-            this.gSTINDataGridViewTextBoxColumn.Name = "gSTINDataGridViewTextBoxColumn";
-            this.gSTINDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmMasterViewBindingSource
-            // 
-            this.firmMasterViewBindingSource.DataMember = "FirmMasterView";
-            this.firmMasterViewBindingSource.DataSource = this.dsFirmMasterView;
-            // 
-            // dsFirmMasterView
-            // 
-            this.dsFirmMasterView.DataSetName = "dsFirmMasterView";
-            this.dsFirmMasterView.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -179,6 +146,12 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.LightBlue;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtAccountNo);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.txtIFSC);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.txtBankName);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtGSTNo);
             this.panel3.Controls.Add(this.label4);
@@ -189,6 +162,42 @@
             this.panel3.Controls.Add(this.txtFirmName);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
+            // 
+            // txtAccountNo
+            // 
+            this.txtAccountNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtAccountNo, "txtAccountNo");
+            this.txtAccountNo.Name = "txtAccountNo";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Name = "label8";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Name = "label6";
+            // 
+            // txtIFSC
+            // 
+            this.txtIFSC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtIFSC, "txtIFSC");
+            this.txtIFSC.Name = "txtIFSC";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Name = "label7";
+            // 
+            // txtBankName
+            // 
+            this.txtBankName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtBankName, "txtBankName");
+            this.txtBankName.Name = "txtBankName";
             // 
             // btnSave
             // 
@@ -232,18 +241,84 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Name = "panel1";
             // 
+            // dsFirmMasterView
+            // 
+            this.dsFirmMasterView.DataSetName = "dsFirmMasterView";
+            this.dsFirmMasterView.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // firmMasterViewBindingSource
+            // 
+            this.firmMasterViewBindingSource.DataMember = "FirmMasterView";
+            this.firmMasterViewBindingSource.DataSource = this.dsFirmMasterView;
+            // 
             // firmMasterViewTableAdapter
             // 
             this.firmMasterViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // firmIDDataGridViewTextBoxColumn
+            // 
+            this.firmIDDataGridViewTextBoxColumn.DataPropertyName = "FirmID";
+            resources.ApplyResources(this.firmIDDataGridViewTextBoxColumn, "firmIDDataGridViewTextBoxColumn");
+            this.firmIDDataGridViewTextBoxColumn.Name = "firmIDDataGridViewTextBoxColumn";
+            this.firmIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmNameDataGridViewTextBoxColumn
+            // 
+            this.firmNameDataGridViewTextBoxColumn.DataPropertyName = "FirmName";
+            resources.ApplyResources(this.firmNameDataGridViewTextBoxColumn, "firmNameDataGridViewTextBoxColumn");
+            this.firmNameDataGridViewTextBoxColumn.Name = "firmNameDataGridViewTextBoxColumn";
+            this.firmNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            resources.ApplyResources(this.addressDataGridViewTextBoxColumn, "addressDataGridViewTextBoxColumn");
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mobileNoDataGridViewTextBoxColumn
+            // 
+            this.mobileNoDataGridViewTextBoxColumn.DataPropertyName = "MobileNo";
+            resources.ApplyResources(this.mobileNoDataGridViewTextBoxColumn, "mobileNoDataGridViewTextBoxColumn");
+            this.mobileNoDataGridViewTextBoxColumn.Name = "mobileNoDataGridViewTextBoxColumn";
+            this.mobileNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gSTINDataGridViewTextBoxColumn
+            // 
+            this.gSTINDataGridViewTextBoxColumn.DataPropertyName = "GSTIN";
+            resources.ApplyResources(this.gSTINDataGridViewTextBoxColumn, "gSTINDataGridViewTextBoxColumn");
+            this.gSTINDataGridViewTextBoxColumn.Name = "gSTINDataGridViewTextBoxColumn";
+            this.gSTINDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bankNameDataGridViewTextBoxColumn
+            // 
+            this.bankNameDataGridViewTextBoxColumn.DataPropertyName = "BankName";
+            resources.ApplyResources(this.bankNameDataGridViewTextBoxColumn, "bankNameDataGridViewTextBoxColumn");
+            this.bankNameDataGridViewTextBoxColumn.Name = "bankNameDataGridViewTextBoxColumn";
+            this.bankNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountNoDataGridViewTextBoxColumn
+            // 
+            this.accountNoDataGridViewTextBoxColumn.DataPropertyName = "AccountNo";
+            resources.ApplyResources(this.accountNoDataGridViewTextBoxColumn, "accountNoDataGridViewTextBoxColumn");
+            this.accountNoDataGridViewTextBoxColumn.Name = "accountNoDataGridViewTextBoxColumn";
+            this.accountNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iFSCDataGridViewTextBoxColumn
+            // 
+            this.iFSCDataGridViewTextBoxColumn.DataPropertyName = "IFSC";
+            resources.ApplyResources(this.iFSCDataGridViewTextBoxColumn, "iFSCDataGridViewTextBoxColumn");
+            this.iFSCDataGridViewTextBoxColumn.Name = "iFSCDataGridViewTextBoxColumn";
+            this.iFSCDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FirmMaster
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgvView);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dgvView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FirmMaster";
@@ -251,13 +326,13 @@
             this.Load += new System.EventHandler(this.FirmMaster_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirmMaster_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firmMasterViewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFirmMasterView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFirmMasterView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firmMasterViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,6 +354,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtAccountNo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtIFSC;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtBankName;
         private DatasetList.dsFirmMasterView dsFirmMasterView;
         private System.Windows.Forms.BindingSource firmMasterViewBindingSource;
         private DatasetList.dsFirmMasterViewTableAdapters.FirmMasterViewTableAdapter firmMasterViewTableAdapter;
@@ -287,5 +368,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobileNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gSTINDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bankNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iFSCDataGridViewTextBoxColumn;
     }
 }

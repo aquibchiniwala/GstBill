@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListAllFirmTableAdapter" GeneratorDataComponentClassName="ListAllFirmTableAdapter" Name="ListAllFirm" UserDataComponentName="ListAllFirmTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Con (Settings)" DbObjectName="GstBill.dbo.ListAllFirm" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Con (Settings)" DbObjectName="GstBill.dbo.ListAllFirm" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ListAllFirm</CommandText>
@@ -26,6 +26,9 @@
               <Mapping SourceColumn="Address" DataSetColumn="Address" />
               <Mapping SourceColumn="MobileNo" DataSetColumn="MobileNo" />
               <Mapping SourceColumn="GSTIN" DataSetColumn="GSTIN" />
+              <Mapping SourceColumn="BankName" DataSetColumn="BankName" />
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="IFSC" DataSetColumn="IFSC" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -37,7 +40,7 @@
   <xs:element name="dsListAllFirm" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsListAllFirm" msprop:Generator_UserDSName="dsListAllFirm">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ListAllFirm" msprop:Generator_TableClassName="ListAllFirmDataTable" msprop:Generator_TableVarName="tableListAllFirm" msprop:Generator_TablePropName="ListAllFirm" msprop:Generator_RowDeletingName="ListAllFirmRowDeleting" msprop:Generator_RowChangingName="ListAllFirmRowChanging" msprop:Generator_RowEvHandlerName="ListAllFirmRowChangeEventHandler" msprop:Generator_RowDeletedName="ListAllFirmRowDeleted" msprop:Generator_UserTableName="ListAllFirm" msprop:Generator_RowChangedName="ListAllFirmRowChanged" msprop:Generator_RowEvArgName="ListAllFirmRowChangeEvent" msprop:Generator_RowClassName="ListAllFirmRow">
+        <xs:element name="ListAllFirm" msprop:Generator_TableClassName="ListAllFirmDataTable" msprop:Generator_TableVarName="tableListAllFirm" msprop:Generator_RowChangedName="ListAllFirmRowChanged" msprop:Generator_TablePropName="ListAllFirm" msprop:Generator_RowDeletingName="ListAllFirmRowDeleting" msprop:Generator_RowChangingName="ListAllFirmRowChanging" msprop:Generator_RowEvHandlerName="ListAllFirmRowChangeEventHandler" msprop:Generator_RowDeletedName="ListAllFirmRowDeleted" msprop:Generator_RowClassName="ListAllFirmRow" msprop:Generator_UserTableName="ListAllFirm" msprop:Generator_RowEvArgName="ListAllFirmRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FirmID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnFirmID" msprop:Generator_ColumnPropNameInRow="FirmID" msprop:Generator_ColumnPropNameInTable="FirmIDColumn" msprop:Generator_UserColumnName="FirmID" type="xs:int" />
@@ -69,10 +72,35 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IFSC" msprop:Generator_ColumnVarNameInTable="columnIFSC" msprop:Generator_ColumnPropNameInRow="IFSC" msprop:Generator_ColumnPropNameInTable="IFSCColumn" msprop:Generator_UserColumnName="IFSC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ListAllFirm" />
+      <xs:field xpath="mstns:FirmID" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

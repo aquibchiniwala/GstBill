@@ -121,11 +121,20 @@
     <value>FirmID</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="firmIDDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="firmIDDataGridViewTextBoxColumn.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="firmIDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
   <data name="firmNameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>FirmName</value>
+  </data>
+  <data name="firmNameDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="firmNameDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -133,11 +142,17 @@
   <data name="addressDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="addressDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="addressDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>300</value>
+    <value>150</value>
   </data>
   <data name="mobileNoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>MobileNo</value>
+  </data>
+  <data name="mobileNoDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="mobileNoDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -145,21 +160,58 @@
   <data name="gSTINDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>GSTIN</value>
   </data>
+  <data name="gSTINDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="gSTINDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
+  <data name="bankNameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>BankName</value>
+  </data>
+  <data name="bankNameDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="bankNameDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="accountNoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>AccountNo</value>
+  </data>
+  <data name="accountNoDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="accountNoDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="iFSCDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>IFSC</value>
+  </data>
+  <data name="iFSCDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="iFSCDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
   <metadata name="firmMasterViewBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>169, 17</value>
+    <value>229, 17</value>
   </metadata>
   <metadata name="dsFirmMasterView.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgvView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 117</value>
+    <value>0, 232</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="dgvView.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
   </data>
   <data name="dgvView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 447</value>
+    <value>1200, 636</value>
   </data>
   <data name="dgvView.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -174,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvView.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -183,10 +235,13 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 14</value>
+    <value>818, 22</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 15</value>
+    <value>70, 22</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -204,19 +259,22 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>6</value>
   </data>
   <data name="txtGSTNo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtGSTNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>607, 12</value>
+    <value>910, 18</value>
+  </data>
+  <data name="txtGSTNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="txtGSTNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 23</value>
+    <value>224, 30</value>
   </data>
   <data name="txtGSTNo.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;txtGSTNo.Name" xml:space="preserve">
     <value>txtGSTNo</value>
@@ -228,7 +286,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;txtGSTNo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>7</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -237,10 +295,13 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 43</value>
+    <value>33, 61</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 15</value>
+    <value>99, 22</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -258,7 +319,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>8</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -267,10 +328,13 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 14</value>
+    <value>442, 22</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 15</value>
+    <value>83, 22</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -288,19 +352,22 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>9</value>
   </data>
   <data name="txtAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 12</value>
+    <value>542, 18</value>
+  </data>
+  <data name="txtAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="txtAddress.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 52</value>
+    <value>224, 70</value>
   </data>
   <data name="txtAddress.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -315,16 +382,19 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>10</value>
   </data>
   <data name="txtMobileNo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtMobileNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 41</value>
+    <value>166, 58</value>
+  </data>
+  <data name="txtMobileNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="txtMobileNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 23</value>
+    <value>224, 30</value>
   </data>
   <data name="txtMobileNo.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -339,7 +409,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;txtMobileNo.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>11</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -348,10 +418,13 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 14</value>
+    <value>33, 22</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 15</value>
+    <value>106, 22</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -369,16 +442,19 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>12</value>
   </data>
   <data name="txtFirmName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtFirmName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 12</value>
+    <value>166, 18</value>
+  </data>
+  <data name="txtFirmName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="txtFirmName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 23</value>
+    <value>224, 30</value>
   </data>
   <data name="txtFirmName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -393,13 +469,205 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;txtFirmName.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="txtAccountNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="txtAccountNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>542, 102</value>
+  </data>
+  <data name="txtAccountNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtAccountNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 30</value>
+  </data>
+  <data name="txtAccountNo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNo.Name" xml:space="preserve">
+    <value>txtAccountNo</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNo.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 102</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 22</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>A/C No</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 102</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 22</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>IFSC</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtIFSC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="txtIFSC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>910, 98</value>
+  </data>
+  <data name="txtIFSC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtIFSC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 30</value>
+  </data>
+  <data name="txtIFSC.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;txtIFSC.Name" xml:space="preserve">
+    <value>txtIFSC</value>
+  </data>
+  <data name="&gt;&gt;txtIFSC.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtIFSC.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;txtIFSC.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 102</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtBankName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="txtBankName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 98</value>
+  </data>
+  <data name="txtBankName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtBankName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 30</value>
+  </data>
+  <data name="txtBankName.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txtBankName.Name" xml:space="preserve">
+    <value>txtBankName</value>
+  </data>
+  <data name="&gt;&gt;txtBankName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtBankName.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;txtBankName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 36</value>
+    <value>0, 55</value>
+  </data>
+  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 80</value>
+    <value>1199, 174</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -414,9 +682,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -424,13 +691,16 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 6</value>
+    <value>483, 9</value>
+  </data>
+  <data name="btnSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>112, 35</value>
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>8</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>Save</value>
@@ -454,10 +724,13 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 6</value>
+    <value>604, 9</value>
+  </data>
+  <data name="btnExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>112, 35</value>
   </data>
   <data name="btnExit.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -481,10 +754,13 @@
     <value>Stretch</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 565</value>
+    <value>0, 869</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 35</value>
+    <value>1200, 54</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -499,7 +775,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -508,10 +784,13 @@
     <value>Microsoft Sans Serif, 10pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 8</value>
+    <value>33, 12</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 17</value>
+    <value>126, 25</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -537,8 +816,11 @@
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 35</value>
+    <value>1200, 54</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -553,25 +835,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <metadata name="firmMasterViewTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>385, 17</value>
+    <value>537, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 600</value>
+    <value>1200, 923</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FirmMaster</value>
+  </data>
+  <data name="&gt;&gt;dsFirmMasterView.Name" xml:space="preserve">
+    <value>dsFirmMasterView</value>
+  </data>
+  <data name="&gt;&gt;dsFirmMasterView.Type" xml:space="preserve">
+    <value>GSTBill.DatasetList.dsFirmMasterView, DatasetList.dsFirmMasterView.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;firmMasterViewBindingSource.Name" xml:space="preserve">
+    <value>firmMasterViewBindingSource</value>
+  </data>
+  <data name="&gt;&gt;firmMasterViewBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;firmMasterViewTableAdapter.Name" xml:space="preserve">
+    <value>firmMasterViewTableAdapter</value>
+  </data>
+  <data name="&gt;&gt;firmMasterViewTableAdapter.Type" xml:space="preserve">
+    <value>GSTBill.DatasetList.dsFirmMasterViewTableAdapters.FirmMasterViewTableAdapter, DatasetList.dsFirmMasterView.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;firmIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>firmIDDataGridViewTextBoxColumn</value>
@@ -603,23 +906,23 @@
   <data name="&gt;&gt;gSTINDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;firmMasterViewBindingSource.Name" xml:space="preserve">
-    <value>firmMasterViewBindingSource</value>
+  <data name="&gt;&gt;bankNameDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>bankNameDataGridViewTextBoxColumn</value>
   </data>
-  <data name="&gt;&gt;firmMasterViewBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;bankNameDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dsFirmMasterView.Name" xml:space="preserve">
-    <value>dsFirmMasterView</value>
+  <data name="&gt;&gt;accountNoDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>accountNoDataGridViewTextBoxColumn</value>
   </data>
-  <data name="&gt;&gt;dsFirmMasterView.Type" xml:space="preserve">
-    <value>GSTBill.DatasetList.dsFirmMasterView, DatasetList.dsFirmMasterView.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;accountNoDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;firmMasterViewTableAdapter.Name" xml:space="preserve">
-    <value>firmMasterViewTableAdapter</value>
+  <data name="&gt;&gt;iFSCDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>iFSCDataGridViewTextBoxColumn</value>
   </data>
-  <data name="&gt;&gt;firmMasterViewTableAdapter.Type" xml:space="preserve">
-    <value>GSTBill.DatasetList.dsFirmMasterViewTableAdapters.FirmMasterViewTableAdapter, DatasetList.dsFirmMasterView.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;iFSCDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FirmMaster</value>
