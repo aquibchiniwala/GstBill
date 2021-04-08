@@ -466,8 +466,6 @@ namespace GSTBill
             txtNetTotal.Text = Math.Round(gt + sgst + cgst + igst + tcs, 0, MidpointRounding.AwayFromZero).ToString();
             nt = gt + sgst + cgst + igst + tcs;
         }
-
-
         private void dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.dgv.Rows[e.RowIndex].Cells["SNO"].Value = (e.RowIndex + 1).ToString();
@@ -831,7 +829,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
@@ -886,7 +884,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
@@ -1110,7 +1108,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
@@ -1165,7 +1163,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
@@ -1308,7 +1306,7 @@ namespace GSTBill
                 ddlBilledTo_SelectedIndexChanged(sender, e);
                 dtpInvoiceDate.Text = ds.Tables[0].Rows[0][4].ToString();
                 txtChallanNo.Text = ds.Tables[0].Rows[0][5].ToString();
-                txtChequeDate.Text = ds.Tables[0].Rows[0][6].ToString();
+                dtpChallanDate.Value = DateTime.ParseExact(ds.Tables[0].Rows[0][6].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 txtBroker.Text = ds.Tables[0].Rows[0][7].ToString();
                 txtDelTo.Text = ds.Tables[0].Rows[0][8].ToString();
                 txtDelAdd.Text = ds.Tables[0].Rows[0][9].ToString();
@@ -1464,7 +1462,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
@@ -1519,7 +1517,7 @@ namespace GSTBill
                             cmd.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("InvoiceDate", dt).DbType = DbType.Date;
                             cmd.Parameters.AddWithValue("ChallanNo", txtChallanNo.Text).DbType = DbType.String;
-                            cmd.Parameters.AddWithValue("ChallanDate", txtChequeDate.Text).DbType = DbType.String;
+                            cmd.Parameters.AddWithValue("ChallanDate", dtpChallanDate.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("Broker", txtBroker.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelTo", txtDelTo.Text).DbType = DbType.String;
                             cmd.Parameters.AddWithValue("DelAddress", txtDelAdd.Text).DbType = DbType.String;
