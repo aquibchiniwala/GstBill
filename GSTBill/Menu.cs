@@ -58,5 +58,10 @@ namespace GSTBill
             Application.Exit();
         }
 
+        private void filterParty50LToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptFilterParty50L form = new rptFilterParty50L();
+            form.ShowDialog();
+        }
     }
 }

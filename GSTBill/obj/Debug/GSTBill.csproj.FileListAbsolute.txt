@@ -105,3 +105,4 @@ D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.csproj.GenerateResource.
 D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.csproj.CoreCompileInputs.cache
 D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.exe
 D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.pdb
+D:\GST BILL SOFT 2021\GstBill\GSTBill\obj\Debug\GSTBill.rptFilterParty50L.resources

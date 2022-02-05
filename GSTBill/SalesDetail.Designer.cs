@@ -148,6 +148,7 @@ namespace GSTBill
             this.label54 = new System.Windows.Forms.Label();
             this.txtTCSPer = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listAllFirmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsListAllFirm)).BeginInit();
             this.panel1.SuspendLayout();
@@ -170,9 +171,10 @@ namespace GSTBill
             this.ddlFirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlFirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlFirm.FormattingEnabled = true;
-            this.ddlFirm.Location = new System.Drawing.Point(104, 10);
+            this.ddlFirm.Location = new System.Drawing.Point(139, 12);
+            this.ddlFirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlFirm.Name = "ddlFirm";
-            this.ddlFirm.Size = new System.Drawing.Size(404, 23);
+            this.ddlFirm.Size = new System.Drawing.Size(537, 26);
             this.ddlFirm.TabIndex = 0;
             this.ddlFirm.ValueMember = "FirmID";
             this.ddlFirm.SelectedIndexChanged += new System.EventHandler(this.ddlFirm_SelectedIndexChanged);
@@ -190,9 +192,10 @@ namespace GSTBill
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(102, 9);
+            this.label4.Location = new System.Drawing.Point(136, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(407, 25);
+            this.label4.Size = new System.Drawing.Size(542, 30);
             this.label4.TabIndex = 71;
             // 
             // label2
@@ -200,9 +203,10 @@ namespace GSTBill
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(13, 12);
+            this.label2.Location = new System.Drawing.Point(17, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.Size = new System.Drawing.Size(42, 18);
             this.label2.TabIndex = 69;
             this.label2.Text = "Firm";
             // 
@@ -213,16 +217,18 @@ namespace GSTBill
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.ddlFirm);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(0, 12);
+            this.panel1.Location = new System.Drawing.Point(0, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(783, 44);
+            this.panel1.Size = new System.Drawing.Size(1043, 54);
             this.panel1.TabIndex = 72;
             // 
             // btnUpdateAll
             // 
-            this.btnUpdateAll.Location = new System.Drawing.Point(538, 9);
+            this.btnUpdateAll.Location = new System.Drawing.Point(717, 11);
+            this.btnUpdateAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdateAll.Name = "btnUpdateAll";
-            this.btnUpdateAll.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateAll.Size = new System.Drawing.Size(100, 28);
             this.btnUpdateAll.TabIndex = 86;
             this.btnUpdateAll.Text = "Update All";
             this.btnUpdateAll.UseVisualStyleBackColor = true;
@@ -234,9 +240,10 @@ namespace GSTBill
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(284, 9);
+            this.label17.Location = new System.Drawing.Point(379, 11);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 15);
+            this.label17.Size = new System.Drawing.Size(74, 18);
             this.label17.TabIndex = 61;
             this.label17.Text = "Billed To";
             // 
@@ -276,9 +283,10 @@ namespace GSTBill
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.txtDelState);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Location = new System.Drawing.Point(0, 67);
+            this.panel2.Location = new System.Drawing.Point(0, 82);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 158);
+            this.panel2.Size = new System.Drawing.Size(1043, 194);
             this.panel2.TabIndex = 72;
             // 
             // ddlBilledTo
@@ -290,9 +298,10 @@ namespace GSTBill
             this.ddlBilledTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlBilledTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlBilledTo.FormattingEnabled = true;
-            this.ddlBilledTo.Location = new System.Drawing.Point(376, 7);
+            this.ddlBilledTo.Location = new System.Drawing.Point(501, 9);
+            this.ddlBilledTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlBilledTo.Name = "ddlBilledTo";
-            this.ddlBilledTo.Size = new System.Drawing.Size(149, 23);
+            this.ddlBilledTo.Size = new System.Drawing.Size(197, 26);
             this.ddlBilledTo.TabIndex = 7;
             this.ddlBilledTo.ValueMember = "PartyID";
             this.ddlBilledTo.SelectedIndexChanged += new System.EventHandler(this.ddlBilledTo_SelectedIndexChanged);
@@ -310,9 +319,10 @@ namespace GSTBill
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Location = new System.Drawing.Point(374, 6);
+            this.label6.Location = new System.Drawing.Point(499, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 25);
+            this.label6.Size = new System.Drawing.Size(202, 30);
             this.label6.TabIndex = 85;
             // 
             // label23
@@ -320,9 +330,10 @@ namespace GSTBill
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(13, 96);
+            this.label23.Location = new System.Drawing.Point(17, 118);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 15);
+            this.label23.Size = new System.Drawing.Size(104, 18);
             this.label23.TabIndex = 82;
             this.label23.Text = "Challan Date";
             // 
@@ -330,10 +341,11 @@ namespace GSTBill
             // 
             this.txtBillGST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillGST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillGST.Location = new System.Drawing.Point(374, 123);
+            this.txtBillGST.Location = new System.Drawing.Point(499, 151);
+            this.txtBillGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBillGST.Name = "txtBillGST";
             this.txtBillGST.ReadOnly = true;
-            this.txtBillGST.Size = new System.Drawing.Size(152, 23);
+            this.txtBillGST.Size = new System.Drawing.Size(202, 26);
             this.txtBillGST.TabIndex = 13;
             this.txtBillGST.TabStop = false;
             this.txtBillGST.TextChanged += new System.EventHandler(this.txtBillGST_TextChanged);
@@ -343,27 +355,30 @@ namespace GSTBill
             this.dtpChallanDate.CustomFormat = "dd/MM/yyyy";
             this.dtpChallanDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpChallanDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpChallanDate.Location = new System.Drawing.Point(107, 94);
+            this.dtpChallanDate.Location = new System.Drawing.Point(143, 116);
+            this.dtpChallanDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpChallanDate.Name = "dtpChallanDate";
-            this.dtpChallanDate.Size = new System.Drawing.Size(86, 23);
+            this.dtpChallanDate.Size = new System.Drawing.Size(113, 26);
             this.dtpChallanDate.TabIndex = 5;
             // 
             // txtDelTo
             // 
             this.txtDelTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelTo.Location = new System.Drawing.Point(619, 7);
+            this.txtDelTo.Location = new System.Drawing.Point(825, 9);
+            this.txtDelTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDelTo.Name = "txtDelTo";
-            this.txtDelTo.Size = new System.Drawing.Size(152, 23);
+            this.txtDelTo.Size = new System.Drawing.Size(202, 26);
             this.txtDelTo.TabIndex = 60;
             this.txtDelTo.TabStop = false;
             // 
             // label24
             // 
             this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label24.Location = new System.Drawing.Point(106, 93);
+            this.label24.Location = new System.Drawing.Point(141, 114);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(88, 26);
+            this.label24.Size = new System.Drawing.Size(117, 32);
             this.label24.TabIndex = 83;
             // 
             // label15
@@ -371,9 +386,10 @@ namespace GSTBill
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(529, 67);
+            this.label15.Location = new System.Drawing.Point(705, 82);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 15);
+            this.label15.Size = new System.Drawing.Size(90, 18);
             this.label15.TabIndex = 77;
             this.label15.Text = "Mobile No.";
             // 
@@ -382,9 +398,10 @@ namespace GSTBill
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(13, 38);
+            this.label21.Location = new System.Drawing.Point(17, 47);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 15);
+            this.label21.Size = new System.Drawing.Size(101, 18);
             this.label21.TabIndex = 79;
             this.label21.Text = "Invoice Date";
             // 
@@ -392,9 +409,10 @@ namespace GSTBill
             // 
             this.txtDelGST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelGST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelGST.Location = new System.Drawing.Point(619, 123);
+            this.txtDelGST.Location = new System.Drawing.Point(825, 151);
+            this.txtDelGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDelGST.Name = "txtDelGST";
-            this.txtDelGST.Size = new System.Drawing.Size(152, 23);
+            this.txtDelGST.Size = new System.Drawing.Size(202, 26);
             this.txtDelGST.TabIndex = 60;
             this.txtDelGST.TabStop = false;
             // 
@@ -403,9 +421,10 @@ namespace GSTBill
             this.dtpInvoiceDate.CustomFormat = "dd/MM/yyyy h:mm tt";
             this.dtpInvoiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInvoiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInvoiceDate.Location = new System.Drawing.Point(107, 36);
+            this.dtpInvoiceDate.Location = new System.Drawing.Point(143, 44);
+            this.dtpInvoiceDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpInvoiceDate.Name = "dtpInvoiceDate";
-            this.dtpInvoiceDate.Size = new System.Drawing.Size(167, 23);
+            this.dtpInvoiceDate.Size = new System.Drawing.Size(221, 26);
             this.dtpInvoiceDate.TabIndex = 2;
             this.dtpInvoiceDate.ValueChanged += new System.EventHandler(this.dtpInvoiceDate_ValueChanged);
             // 
@@ -414,18 +433,20 @@ namespace GSTBill
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(529, 38);
+            this.label18.Location = new System.Drawing.Point(705, 47);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(58, 15);
+            this.label18.Size = new System.Drawing.Size(69, 18);
             this.label18.TabIndex = 74;
             this.label18.Text = "Address";
             // 
             // label22
             // 
             this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label22.Location = new System.Drawing.Point(106, 35);
+            this.label22.Location = new System.Drawing.Point(141, 43);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(169, 26);
+            this.label22.Size = new System.Drawing.Size(225, 32);
             this.label22.TabIndex = 80;
             // 
             // label14
@@ -433,9 +454,10 @@ namespace GSTBill
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(529, 96);
+            this.label14.Location = new System.Drawing.Point(705, 118);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 15);
+            this.label14.Size = new System.Drawing.Size(47, 18);
             this.label14.TabIndex = 77;
             this.label14.Text = "State";
             // 
@@ -444,9 +466,10 @@ namespace GSTBill
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(13, 9);
+            this.label19.Location = new System.Drawing.Point(17, 11);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 15);
+            this.label19.Size = new System.Drawing.Size(93, 18);
             this.label19.TabIndex = 61;
             this.label19.Text = "Invoice No.";
             // 
@@ -454,10 +477,11 @@ namespace GSTBill
             // 
             this.txtBillState.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillState.Location = new System.Drawing.Point(374, 94);
+            this.txtBillState.Location = new System.Drawing.Point(499, 116);
+            this.txtBillState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBillState.Name = "txtBillState";
             this.txtBillState.ReadOnly = true;
-            this.txtBillState.Size = new System.Drawing.Size(152, 23);
+            this.txtBillState.Size = new System.Drawing.Size(202, 26);
             this.txtBillState.TabIndex = 12;
             this.txtBillState.TabStop = false;
             this.txtBillState.TextChanged += new System.EventHandler(this.txtBillState_TextChanged);
@@ -466,9 +490,10 @@ namespace GSTBill
             // 
             this.txtInvoiceNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInvoiceNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInvoiceNo.Location = new System.Drawing.Point(105, 7);
+            this.txtInvoiceNo.Location = new System.Drawing.Point(140, 9);
+            this.txtInvoiceNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtInvoiceNo.Name = "txtInvoiceNo";
-            this.txtInvoiceNo.Size = new System.Drawing.Size(88, 23);
+            this.txtInvoiceNo.Size = new System.Drawing.Size(117, 26);
             this.txtInvoiceNo.TabIndex = 1;
             this.txtInvoiceNo.TabStop = false;
             this.txtInvoiceNo.TextChanged += new System.EventHandler(this.txtInvoiceNo_TextChanged);
@@ -479,9 +504,10 @@ namespace GSTBill
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(529, 9);
+            this.label16.Location = new System.Drawing.Point(705, 11);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 15);
+            this.label16.Size = new System.Drawing.Size(93, 18);
             this.label16.TabIndex = 61;
             this.label16.Text = "Delivery To";
             // 
@@ -489,18 +515,20 @@ namespace GSTBill
             // 
             this.txtBroker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBroker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBroker.Location = new System.Drawing.Point(106, 123);
+            this.txtBroker.Location = new System.Drawing.Point(141, 151);
+            this.txtBroker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBroker.Name = "txtBroker";
-            this.txtBroker.Size = new System.Drawing.Size(88, 23);
+            this.txtBroker.Size = new System.Drawing.Size(117, 26);
             this.txtBroker.TabIndex = 6;
             // 
             // txtChallanNo
             // 
             this.txtChallanNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChallanNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChallanNo.Location = new System.Drawing.Point(106, 65);
+            this.txtChallanNo.Location = new System.Drawing.Point(141, 80);
+            this.txtChallanNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChallanNo.Name = "txtChallanNo";
-            this.txtChallanNo.Size = new System.Drawing.Size(88, 23);
+            this.txtChallanNo.Size = new System.Drawing.Size(117, 26);
             this.txtChallanNo.TabIndex = 4;
             // 
             // label28
@@ -508,9 +536,10 @@ namespace GSTBill
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(13, 125);
+            this.label28.Location = new System.Drawing.Point(17, 154);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(49, 15);
+            this.label28.Size = new System.Drawing.Size(59, 18);
             this.label28.TabIndex = 61;
             this.label28.Text = "Broker";
             // 
@@ -518,9 +547,10 @@ namespace GSTBill
             // 
             this.txtDelAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelAdd.Location = new System.Drawing.Point(619, 36);
+            this.txtDelAdd.Location = new System.Drawing.Point(825, 44);
+            this.txtDelAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDelAdd.Name = "txtDelAdd";
-            this.txtDelAdd.Size = new System.Drawing.Size(152, 23);
+            this.txtDelAdd.Size = new System.Drawing.Size(202, 26);
             this.txtDelAdd.TabIndex = 60;
             this.txtDelAdd.TabStop = false;
             // 
@@ -529,9 +559,10 @@ namespace GSTBill
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(13, 67);
+            this.label20.Location = new System.Drawing.Point(17, 82);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(82, 15);
+            this.label20.Size = new System.Drawing.Size(96, 18);
             this.label20.TabIndex = 61;
             this.label20.Text = "Challan No.";
             // 
@@ -540,9 +571,10 @@ namespace GSTBill
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(284, 38);
+            this.label9.Location = new System.Drawing.Point(379, 47);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
+            this.label9.Size = new System.Drawing.Size(69, 18);
             this.label9.TabIndex = 74;
             this.label9.Text = "Address";
             // 
@@ -550,10 +582,11 @@ namespace GSTBill
             // 
             this.txtBillMobNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillMobNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillMobNo.Location = new System.Drawing.Point(374, 65);
+            this.txtBillMobNo.Location = new System.Drawing.Point(499, 80);
+            this.txtBillMobNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBillMobNo.Name = "txtBillMobNo";
             this.txtBillMobNo.ReadOnly = true;
-            this.txtBillMobNo.Size = new System.Drawing.Size(152, 23);
+            this.txtBillMobNo.Size = new System.Drawing.Size(202, 26);
             this.txtBillMobNo.TabIndex = 11;
             this.txtBillMobNo.TabStop = false;
             this.txtBillMobNo.TextChanged += new System.EventHandler(this.txtBillMobNo_TextChanged);
@@ -562,10 +595,11 @@ namespace GSTBill
             // 
             this.txtBillAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillAdd.Location = new System.Drawing.Point(374, 36);
+            this.txtBillAdd.Location = new System.Drawing.Point(499, 44);
+            this.txtBillAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBillAdd.Name = "txtBillAdd";
             this.txtBillAdd.ReadOnly = true;
-            this.txtBillAdd.Size = new System.Drawing.Size(152, 23);
+            this.txtBillAdd.Size = new System.Drawing.Size(202, 26);
             this.txtBillAdd.TabIndex = 10;
             this.txtBillAdd.TabStop = false;
             this.txtBillAdd.TextChanged += new System.EventHandler(this.txtBillAdd_TextChanged);
@@ -575,9 +609,10 @@ namespace GSTBill
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(284, 96);
+            this.label11.Location = new System.Drawing.Point(379, 118);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 15);
+            this.label11.Size = new System.Drawing.Size(47, 18);
             this.label11.TabIndex = 77;
             this.label11.Text = "State";
             // 
@@ -586,9 +621,10 @@ namespace GSTBill
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(284, 125);
+            this.label12.Location = new System.Drawing.Point(379, 154);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 15);
+            this.label12.Size = new System.Drawing.Size(102, 18);
             this.label12.TabIndex = 77;
             this.label12.Text = "Party GSTIN";
             // 
@@ -596,9 +632,10 @@ namespace GSTBill
             // 
             this.txtDelMobNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelMobNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelMobNo.Location = new System.Drawing.Point(619, 65);
+            this.txtDelMobNo.Location = new System.Drawing.Point(825, 80);
+            this.txtDelMobNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDelMobNo.Name = "txtDelMobNo";
-            this.txtDelMobNo.Size = new System.Drawing.Size(152, 23);
+            this.txtDelMobNo.Size = new System.Drawing.Size(202, 26);
             this.txtDelMobNo.TabIndex = 60;
             this.txtDelMobNo.TabStop = false;
             // 
@@ -607,9 +644,10 @@ namespace GSTBill
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(529, 125);
+            this.label13.Location = new System.Drawing.Point(705, 154);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 15);
+            this.label13.Size = new System.Drawing.Size(102, 18);
             this.label13.TabIndex = 77;
             this.label13.Text = "Party GSTIN";
             // 
@@ -617,9 +655,10 @@ namespace GSTBill
             // 
             this.txtDelState.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelState.Location = new System.Drawing.Point(619, 94);
+            this.txtDelState.Location = new System.Drawing.Point(825, 116);
+            this.txtDelState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDelState.Name = "txtDelState";
-            this.txtDelState.Size = new System.Drawing.Size(152, 23);
+            this.txtDelState.Size = new System.Drawing.Size(202, 26);
             this.txtDelState.TabIndex = 60;
             this.txtDelState.TabStop = false;
             // 
@@ -628,9 +667,10 @@ namespace GSTBill
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(284, 67);
+            this.label10.Location = new System.Drawing.Point(379, 82);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 15);
+            this.label10.Size = new System.Drawing.Size(90, 18);
             this.label10.TabIndex = 77;
             this.label10.Text = "Mobile No.";
             // 
@@ -654,18 +694,19 @@ namespace GSTBill
             this.panel3.Controls.Add(this.txtState);
             this.panel3.Controls.Add(this.label29);
             this.panel3.Controls.Add(this.grpUnit);
-            this.panel3.Location = new System.Drawing.Point(0, 234);
+            this.panel3.Location = new System.Drawing.Point(0, 288);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(783, 70);
+            this.panel3.Size = new System.Drawing.Size(1043, 86);
             this.panel3.TabIndex = 72;
             // 
             // rbtnKG
             // 
             this.rbtnKG.AutoSize = true;
-            this.rbtnKG.Location = new System.Drawing.Point(137, 42);
-            this.rbtnKG.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnKG.Location = new System.Drawing.Point(183, 52);
+            this.rbtnKG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnKG.Name = "rbtnKG";
-            this.rbtnKG.Size = new System.Drawing.Size(45, 17);
+            this.rbtnKG.Size = new System.Drawing.Size(56, 21);
             this.rbtnKG.TabIndex = 85;
             this.rbtnKG.Text = "KGs";
             this.rbtnKG.UseVisualStyleBackColor = true;
@@ -675,10 +716,10 @@ namespace GSTBill
             // 
             this.rbtnMeter.AutoSize = true;
             this.rbtnMeter.Checked = true;
-            this.rbtnMeter.Location = new System.Drawing.Point(56, 42);
-            this.rbtnMeter.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnMeter.Location = new System.Drawing.Point(75, 52);
+            this.rbtnMeter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnMeter.Name = "rbtnMeter";
-            this.rbtnMeter.Size = new System.Drawing.Size(57, 17);
+            this.rbtnMeter.Size = new System.Drawing.Size(72, 21);
             this.rbtnMeter.TabIndex = 85;
             this.rbtnMeter.TabStop = true;
             this.rbtnMeter.Text = "Meters";
@@ -690,9 +731,10 @@ namespace GSTBill
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(614, 22);
+            this.label37.Location = new System.Drawing.Point(819, 27);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(43, 15);
+            this.label37.Size = new System.Drawing.Size(50, 18);
             this.label37.TabIndex = 84;
             this.label37.Text = "Place";
             // 
@@ -701,9 +743,10 @@ namespace GSTBill
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(451, 22);
+            this.label36.Location = new System.Drawing.Point(601, 27);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(37, 15);
+            this.label36.Size = new System.Drawing.Size(43, 18);
             this.label36.TabIndex = 84;
             this.label36.Text = "Date";
             // 
@@ -711,9 +754,10 @@ namespace GSTBill
             // 
             this.txtSupplyPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSupplyPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplyPlace.Location = new System.Drawing.Point(673, 11);
+            this.txtSupplyPlace.Location = new System.Drawing.Point(897, 14);
+            this.txtSupplyPlace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSupplyPlace.Name = "txtSupplyPlace";
-            this.txtSupplyPlace.Size = new System.Drawing.Size(80, 23);
+            this.txtSupplyPlace.Size = new System.Drawing.Size(106, 26);
             this.txtSupplyPlace.TabIndex = 60;
             this.txtSupplyPlace.TabStop = false;
             // 
@@ -721,9 +765,10 @@ namespace GSTBill
             // 
             this.txtVehicle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVehicle.Location = new System.Drawing.Point(364, 9);
+            this.txtVehicle.Location = new System.Drawing.Point(485, 11);
+            this.txtVehicle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtVehicle.Name = "txtVehicle";
-            this.txtVehicle.Size = new System.Drawing.Size(80, 23);
+            this.txtVehicle.Size = new System.Drawing.Size(106, 26);
             this.txtVehicle.TabIndex = 60;
             this.txtVehicle.TabStop = false;
             // 
@@ -732,9 +777,10 @@ namespace GSTBill
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(613, 6);
+            this.label35.Location = new System.Drawing.Point(817, 7);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(50, 15);
+            this.label35.Size = new System.Drawing.Size(58, 18);
             this.label35.TabIndex = 61;
             this.label35.Text = "Supply";
             // 
@@ -743,9 +789,10 @@ namespace GSTBill
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(450, 7);
+            this.label34.Location = new System.Drawing.Point(600, 9);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(50, 15);
+            this.label34.Size = new System.Drawing.Size(58, 18);
             this.label34.TabIndex = 82;
             this.label34.Text = "Supply";
             // 
@@ -754,9 +801,10 @@ namespace GSTBill
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(278, 11);
+            this.label31.Location = new System.Drawing.Point(371, 14);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(80, 15);
+            this.label31.Size = new System.Drawing.Size(94, 18);
             this.label31.TabIndex = 61;
             this.label31.Text = "Vehicle No.";
             // 
@@ -769,18 +817,20 @@ namespace GSTBill
             this.ddlMode.Items.AddRange(new object[] {
             "ROAD",
             "RAIL"});
-            this.ddlMode.Location = new System.Drawing.Point(194, 8);
+            this.ddlMode.Location = new System.Drawing.Point(259, 10);
+            this.ddlMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlMode.Name = "ddlMode";
-            this.ddlMode.Size = new System.Drawing.Size(77, 23);
+            this.ddlMode.Size = new System.Drawing.Size(101, 26);
             this.ddlMode.TabIndex = 78;
             this.ddlMode.TabStop = false;
             // 
             // label32
             // 
             this.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label32.Location = new System.Drawing.Point(192, 7);
+            this.label32.Location = new System.Drawing.Point(256, 9);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(80, 25);
+            this.label32.Size = new System.Drawing.Size(106, 30);
             this.label32.TabIndex = 79;
             // 
             // dtpSupplyDate
@@ -788,9 +838,10 @@ namespace GSTBill
             this.dtpSupplyDate.CustomFormat = "dd/MM/yyyy";
             this.dtpSupplyDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSupplyDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSupplyDate.Location = new System.Drawing.Point(506, 11);
+            this.dtpSupplyDate.Location = new System.Drawing.Point(675, 14);
+            this.dtpSupplyDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpSupplyDate.Name = "dtpSupplyDate";
-            this.dtpSupplyDate.Size = new System.Drawing.Size(101, 23);
+            this.dtpSupplyDate.Size = new System.Drawing.Size(133, 26);
             this.dtpSupplyDate.TabIndex = 81;
             this.dtpSupplyDate.TabStop = false;
             // 
@@ -799,27 +850,30 @@ namespace GSTBill
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(145, 11);
+            this.label30.Location = new System.Drawing.Point(193, 14);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(43, 15);
+            this.label30.Size = new System.Drawing.Size(50, 18);
             this.label30.TabIndex = 61;
             this.label30.Text = "Mode";
             // 
             // label33
             // 
             this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label33.Location = new System.Drawing.Point(505, 10);
+            this.label33.Location = new System.Drawing.Point(673, 12);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(103, 25);
+            this.label33.Size = new System.Drawing.Size(137, 30);
             this.label33.TabIndex = 83;
             // 
             // txtState
             // 
             this.txtState.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtState.Location = new System.Drawing.Point(59, 8);
+            this.txtState.Location = new System.Drawing.Point(79, 10);
+            this.txtState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtState.Name = "txtState";
-            this.txtState.Size = new System.Drawing.Size(80, 23);
+            this.txtState.Size = new System.Drawing.Size(106, 26);
             this.txtState.TabIndex = 60;
             this.txtState.TabStop = false;
             // 
@@ -828,19 +882,20 @@ namespace GSTBill
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(13, 11);
+            this.label29.Location = new System.Drawing.Point(17, 14);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(40, 15);
+            this.label29.Size = new System.Drawing.Size(47, 18);
             this.label29.TabIndex = 61;
             this.label29.Text = "State";
             // 
             // grpUnit
             // 
-            this.grpUnit.Location = new System.Drawing.Point(16, 32);
-            this.grpUnit.Margin = new System.Windows.Forms.Padding(2);
+            this.grpUnit.Location = new System.Drawing.Point(21, 39);
+            this.grpUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpUnit.Name = "grpUnit";
-            this.grpUnit.Padding = new System.Windows.Forms.Padding(2);
-            this.grpUnit.Size = new System.Drawing.Size(183, 33);
+            this.grpUnit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpUnit.Size = new System.Drawing.Size(244, 41);
             this.grpUnit.TabIndex = 86;
             this.grpUnit.TabStop = false;
             this.grpUnit.Text = "Unit";
@@ -848,36 +903,40 @@ namespace GSTBill
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 1);
+            this.label25.Location = new System.Drawing.Point(7, 1);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(61, 13);
+            this.label25.Size = new System.Drawing.Size(82, 17);
             this.label25.TabIndex = 80;
             this.label25.Text = "Firm Details";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(5, 59);
+            this.label26.Location = new System.Drawing.Point(7, 73);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(66, 13);
+            this.label26.Size = new System.Drawing.Size(88, 17);
             this.label26.TabIndex = 84;
             this.label26.Text = "Party Details";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(5, 226);
+            this.label27.Location = new System.Drawing.Point(7, 278);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(87, 13);
+            this.label27.Size = new System.Drawing.Size(117, 17);
             this.label27.TabIndex = 84;
             this.label27.Text = "Transport Details";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(5, 308);
+            this.label47.Location = new System.Drawing.Point(7, 379);
+            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(73, 13);
+            this.label47.Size = new System.Drawing.Size(97, 17);
             this.label47.TabIndex = 84;
             this.label47.Text = "Goods Details";
             // 
@@ -892,9 +951,10 @@ namespace GSTBill
             this.panel5.Controls.Add(this.label50);
             this.panel5.Controls.Add(this.txtBank);
             this.panel5.Controls.Add(this.label58);
-            this.panel5.Location = new System.Drawing.Point(0, 617);
+            this.panel5.Location = new System.Drawing.Point(0, 759);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(783, 37);
+            this.panel5.Size = new System.Drawing.Size(1043, 45);
             this.panel5.TabIndex = 72;
             // 
             // label51
@@ -902,9 +962,10 @@ namespace GSTBill
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.Black;
-            this.label51.Location = new System.Drawing.Point(471, 12);
+            this.label51.Location = new System.Drawing.Point(628, 15);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(37, 15);
+            this.label51.Size = new System.Drawing.Size(43, 18);
             this.label51.TabIndex = 84;
             this.label51.Text = "Date";
             // 
@@ -912,9 +973,10 @@ namespace GSTBill
             // 
             this.txtChequeDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChequeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChequeDate.Location = new System.Drawing.Point(514, 10);
+            this.txtChequeDate.Location = new System.Drawing.Point(685, 12);
+            this.txtChequeDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChequeDate.Name = "txtChequeDate";
-            this.txtChequeDate.Size = new System.Drawing.Size(80, 23);
+            this.txtChequeDate.Size = new System.Drawing.Size(106, 26);
             this.txtChequeDate.TabIndex = 60;
             this.txtChequeDate.TabStop = false;
             // 
@@ -922,9 +984,10 @@ namespace GSTBill
             // 
             this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(669, 10);
+            this.txtAmount.Location = new System.Drawing.Point(892, 12);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(80, 23);
+            this.txtAmount.Size = new System.Drawing.Size(106, 26);
             this.txtAmount.TabIndex = 60;
             this.txtAmount.TabStop = false;
             // 
@@ -933,9 +996,10 @@ namespace GSTBill
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.Black;
-            this.label52.Location = new System.Drawing.Point(608, 12);
+            this.label52.Location = new System.Drawing.Point(811, 15);
+            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(55, 15);
+            this.label52.Size = new System.Drawing.Size(65, 18);
             this.label52.TabIndex = 61;
             this.label52.Text = "Amount";
             // 
@@ -943,9 +1007,10 @@ namespace GSTBill
             // 
             this.txtChequeNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChequeNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChequeNo.Location = new System.Drawing.Point(306, 10);
+            this.txtChequeNo.Location = new System.Drawing.Point(408, 12);
+            this.txtChequeNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChequeNo.Name = "txtChequeNo";
-            this.txtChequeNo.Size = new System.Drawing.Size(150, 23);
+            this.txtChequeNo.Size = new System.Drawing.Size(199, 26);
             this.txtChequeNo.TabIndex = 60;
             this.txtChequeNo.TabStop = false;
             // 
@@ -954,9 +1019,10 @@ namespace GSTBill
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.Black;
-            this.label50.Location = new System.Drawing.Point(242, 12);
+            this.label50.Location = new System.Drawing.Point(323, 15);
+            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(58, 15);
+            this.label50.Size = new System.Drawing.Size(70, 18);
             this.label50.TabIndex = 61;
             this.label50.Text = "Chq No.";
             // 
@@ -964,9 +1030,10 @@ namespace GSTBill
             // 
             this.txtBank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBank.Location = new System.Drawing.Point(73, 10);
+            this.txtBank.Location = new System.Drawing.Point(97, 12);
+            this.txtBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBank.Name = "txtBank";
-            this.txtBank.Size = new System.Drawing.Size(150, 23);
+            this.txtBank.Size = new System.Drawing.Size(199, 26);
             this.txtBank.TabIndex = 60;
             this.txtBank.TabStop = false;
             // 
@@ -975,18 +1042,20 @@ namespace GSTBill
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.Black;
-            this.label58.Location = new System.Drawing.Point(28, 12);
+            this.label58.Location = new System.Drawing.Point(37, 15);
+            this.label58.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(39, 15);
+            this.label58.Size = new System.Drawing.Size(46, 18);
             this.label58.TabIndex = 61;
             this.label58.Text = "Bank";
             // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(5, 610);
+            this.label59.Location = new System.Drawing.Point(7, 751);
+            this.label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(67, 13);
+            this.label59.Size = new System.Drawing.Size(87, 17);
             this.label59.TabIndex = 85;
             this.label59.Text = "Bank Details";
             // 
@@ -1001,9 +1070,10 @@ namespace GSTBill
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPrint.Location = new System.Drawing.Point(250, 660);
+            this.btnPrint.Location = new System.Drawing.Point(262, 812);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(133, 23);
+            this.btnPrint.Size = new System.Drawing.Size(177, 28);
             this.btnPrint.TabIndex = 10;
             this.btnPrint.TabStop = false;
             this.btnPrint.Text = "Save Print(Ctrl+P)";
@@ -1017,9 +1087,10 @@ namespace GSTBill
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSave.Location = new System.Drawing.Point(389, 660);
+            this.btnSave.Location = new System.Drawing.Point(448, 812);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(133, 23);
+            this.btnSave.Size = new System.Drawing.Size(177, 28);
             this.btnSave.TabIndex = 11;
             this.btnSave.TabStop = false;
             this.btnSave.Text = "Save Only(Ctrl+S)";
@@ -1033,9 +1104,10 @@ namespace GSTBill
             // label40
             // 
             this.label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label40.Location = new System.Drawing.Point(75, 179);
+            this.label40.Location = new System.Drawing.Point(100, 220);
+            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(57, 25);
+            this.label40.Size = new System.Drawing.Size(75, 30);
             this.label40.TabIndex = 79;
             // 
             // ddlSGST
@@ -1053,9 +1125,10 @@ namespace GSTBill
             "12",
             "14",
             "18"});
-            this.ddlSGST.Location = new System.Drawing.Point(77, 181);
+            this.ddlSGST.Location = new System.Drawing.Point(103, 223);
+            this.ddlSGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlSGST.Name = "ddlSGST";
-            this.ddlSGST.Size = new System.Drawing.Size(54, 23);
+            this.ddlSGST.Size = new System.Drawing.Size(71, 26);
             this.ddlSGST.TabIndex = 15;
             this.ddlSGST.TabStop = false;
             this.ddlSGST.SelectedIndexChanged += new System.EventHandler(this.ddlSGST_SelectedIndexChanged);
@@ -1063,9 +1136,10 @@ namespace GSTBill
             // label42
             // 
             this.label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label42.Location = new System.Drawing.Point(75, 208);
+            this.label42.Location = new System.Drawing.Point(100, 256);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(57, 25);
+            this.label42.Size = new System.Drawing.Size(75, 30);
             this.label42.TabIndex = 79;
             // 
             // ddlCGST
@@ -1083,9 +1157,10 @@ namespace GSTBill
             "12",
             "14",
             "18"});
-            this.ddlCGST.Location = new System.Drawing.Point(77, 210);
+            this.ddlCGST.Location = new System.Drawing.Point(103, 258);
+            this.ddlCGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlCGST.Name = "ddlCGST";
-            this.ddlCGST.Size = new System.Drawing.Size(54, 23);
+            this.ddlCGST.Size = new System.Drawing.Size(71, 26);
             this.ddlCGST.TabIndex = 16;
             this.ddlCGST.TabStop = false;
             this.ddlCGST.SelectedIndexChanged += new System.EventHandler(this.ddlCGST_SelectedIndexChanged);
@@ -1093,9 +1168,10 @@ namespace GSTBill
             // label45
             // 
             this.label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label45.Location = new System.Drawing.Point(75, 237);
+            this.label45.Location = new System.Drawing.Point(100, 292);
+            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(57, 25);
+            this.label45.Size = new System.Drawing.Size(75, 30);
             this.label45.TabIndex = 79;
             // 
             // ddlIGST
@@ -1113,9 +1189,10 @@ namespace GSTBill
             "12",
             "14",
             "18"});
-            this.ddlIGST.Location = new System.Drawing.Point(77, 239);
+            this.ddlIGST.Location = new System.Drawing.Point(103, 294);
+            this.ddlIGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlIGST.Name = "ddlIGST";
-            this.ddlIGST.Size = new System.Drawing.Size(54, 23);
+            this.ddlIGST.Size = new System.Drawing.Size(71, 26);
             this.ddlIGST.TabIndex = 17;
             this.ddlIGST.TabStop = false;
             this.ddlIGST.SelectedIndexChanged += new System.EventHandler(this.ddlIGST_SelectedIndexChanged);
@@ -1123,9 +1200,10 @@ namespace GSTBill
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(75, 266);
+            this.label1.Location = new System.Drawing.Point(100, 327);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 25);
+            this.label1.Size = new System.Drawing.Size(75, 30);
             this.label1.TabIndex = 79;
             // 
             // txtGrossTotal
@@ -1134,10 +1212,11 @@ namespace GSTBill
             this.txtGrossTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrossTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGrossTotal.ForeColor = System.Drawing.Color.Black;
-            this.txtGrossTotal.Location = new System.Drawing.Point(686, 180);
+            this.txtGrossTotal.Location = new System.Drawing.Point(915, 222);
+            this.txtGrossTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGrossTotal.Name = "txtGrossTotal";
             this.txtGrossTotal.ReadOnly = true;
-            this.txtGrossTotal.Size = new System.Drawing.Size(86, 23);
+            this.txtGrossTotal.Size = new System.Drawing.Size(114, 26);
             this.txtGrossTotal.TabIndex = 85;
             this.txtGrossTotal.TabStop = false;
             this.txtGrossTotal.Text = "0";
@@ -1148,10 +1227,11 @@ namespace GSTBill
             this.txtDiscAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscAmt.ForeColor = System.Drawing.Color.Black;
-            this.txtDiscAmt.Location = new System.Drawing.Point(686, 209);
+            this.txtDiscAmt.Location = new System.Drawing.Point(915, 257);
+            this.txtDiscAmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiscAmt.Name = "txtDiscAmt";
             this.txtDiscAmt.ReadOnly = true;
-            this.txtDiscAmt.Size = new System.Drawing.Size(86, 23);
+            this.txtDiscAmt.Size = new System.Drawing.Size(114, 26);
             this.txtDiscAmt.TabIndex = 85;
             this.txtDiscAmt.TabStop = false;
             this.txtDiscAmt.Text = "0";
@@ -1162,9 +1242,10 @@ namespace GSTBill
             this.txtDiscPer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscPer.ForeColor = System.Drawing.Color.Black;
-            this.txtDiscPer.Location = new System.Drawing.Point(634, 208);
+            this.txtDiscPer.Location = new System.Drawing.Point(845, 256);
+            this.txtDiscPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiscPer.Name = "txtDiscPer";
-            this.txtDiscPer.Size = new System.Drawing.Size(46, 23);
+            this.txtDiscPer.Size = new System.Drawing.Size(61, 26);
             this.txtDiscPer.TabIndex = 111;
             this.txtDiscPer.TabStop = false;
             this.txtDiscPer.Text = "0";
@@ -1177,10 +1258,11 @@ namespace GSTBill
             this.txtNetTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNetTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetTotal.ForeColor = System.Drawing.Color.Black;
-            this.txtNetTotal.Location = new System.Drawing.Point(686, 237);
+            this.txtNetTotal.Location = new System.Drawing.Point(915, 292);
+            this.txtNetTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNetTotal.Name = "txtNetTotal";
             this.txtNetTotal.ReadOnly = true;
-            this.txtNetTotal.Size = new System.Drawing.Size(86, 23);
+            this.txtNetTotal.Size = new System.Drawing.Size(114, 26);
             this.txtNetTotal.TabIndex = 85;
             this.txtNetTotal.TabStop = false;
             this.txtNetTotal.Text = "0";
@@ -1199,11 +1281,12 @@ namespace GSTBill
             this.UNIT,
             this.RATE,
             this.AMOUNT});
-            this.dgv.Location = new System.Drawing.Point(12, 16);
+            this.dgv.Location = new System.Drawing.Point(16, 20);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 62;
             this.dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgv.Size = new System.Drawing.Size(759, 158);
+            this.dgv.Size = new System.Drawing.Size(1012, 194);
             this.dgv.TabIndex = 8;
             this.dgv.TabStop = false;
             this.dgv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellValueChanged);
@@ -1266,10 +1349,11 @@ namespace GSTBill
             // 
             this.txtSGST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGST.Location = new System.Drawing.Point(161, 180);
+            this.txtSGST.Location = new System.Drawing.Point(215, 222);
+            this.txtSGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSGST.Name = "txtSGST";
             this.txtSGST.ReadOnly = true;
-            this.txtSGST.Size = new System.Drawing.Size(86, 23);
+            this.txtSGST.Size = new System.Drawing.Size(114, 26);
             this.txtSGST.TabIndex = 60;
             this.txtSGST.TabStop = false;
             this.txtSGST.Text = "0";
@@ -1278,10 +1362,11 @@ namespace GSTBill
             // 
             this.txtCGST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCGST.Location = new System.Drawing.Point(161, 209);
+            this.txtCGST.Location = new System.Drawing.Point(215, 257);
+            this.txtCGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCGST.Name = "txtCGST";
             this.txtCGST.ReadOnly = true;
-            this.txtCGST.Size = new System.Drawing.Size(86, 23);
+            this.txtCGST.Size = new System.Drawing.Size(114, 26);
             this.txtCGST.TabIndex = 60;
             this.txtCGST.TabStop = false;
             this.txtCGST.Text = "0";
@@ -1290,10 +1375,11 @@ namespace GSTBill
             // 
             this.txtIGST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGST.Location = new System.Drawing.Point(161, 238);
+            this.txtIGST.Location = new System.Drawing.Point(215, 293);
+            this.txtIGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIGST.Name = "txtIGST";
             this.txtIGST.ReadOnly = true;
-            this.txtIGST.Size = new System.Drawing.Size(86, 23);
+            this.txtIGST.Size = new System.Drawing.Size(114, 26);
             this.txtIGST.TabIndex = 60;
             this.txtIGST.TabStop = false;
             this.txtIGST.Text = "0";
@@ -1302,10 +1388,11 @@ namespace GSTBill
             // 
             this.txtTCS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTCS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTCS.Location = new System.Drawing.Point(161, 266);
+            this.txtTCS.Location = new System.Drawing.Point(215, 327);
+            this.txtTCS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTCS.Name = "txtTCS";
             this.txtTCS.ReadOnly = true;
-            this.txtTCS.Size = new System.Drawing.Size(86, 23);
+            this.txtTCS.Size = new System.Drawing.Size(114, 26);
             this.txtTCS.TabIndex = 60;
             this.txtTCS.TabStop = false;
             this.txtTCS.Text = "0";
@@ -1315,9 +1402,10 @@ namespace GSTBill
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(584, 183);
+            this.label38.Location = new System.Drawing.Point(779, 225);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(96, 15);
+            this.label38.Size = new System.Drawing.Size(117, 18);
             this.label38.TabIndex = 86;
             this.label38.Text = "Gross Amount";
             // 
@@ -1326,9 +1414,10 @@ namespace GSTBill
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label55.ForeColor = System.Drawing.Color.Black;
-            this.label55.Location = new System.Drawing.Point(584, 211);
+            this.label55.Location = new System.Drawing.Point(779, 260);
+            this.label55.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(44, 15);
+            this.label55.Size = new System.Drawing.Size(53, 18);
             this.label55.TabIndex = 86;
             this.label55.Text = "- Disc";
             // 
@@ -1337,9 +1426,10 @@ namespace GSTBill
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.Black;
-            this.label49.Location = new System.Drawing.Point(584, 240);
+            this.label49.Location = new System.Drawing.Point(779, 295);
+            this.label49.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(81, 15);
+            this.label49.Size = new System.Drawing.Size(96, 18);
             this.label49.TabIndex = 86;
             this.label49.Text = "Net Amount";
             // 
@@ -1348,9 +1438,10 @@ namespace GSTBill
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.Black;
-            this.label39.Location = new System.Drawing.Point(16, 182);
+            this.label39.Location = new System.Drawing.Point(21, 224);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(55, 15);
+            this.label39.Size = new System.Drawing.Size(68, 18);
             this.label39.TabIndex = 86;
             this.label39.Text = "+ SGST";
             // 
@@ -1359,9 +1450,10 @@ namespace GSTBill
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.Black;
-            this.label43.Location = new System.Drawing.Point(16, 211);
+            this.label43.Location = new System.Drawing.Point(21, 260);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(55, 15);
+            this.label43.Size = new System.Drawing.Size(69, 18);
             this.label43.TabIndex = 86;
             this.label43.Text = "+ CGST";
             // 
@@ -1370,9 +1462,10 @@ namespace GSTBill
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.Black;
-            this.label46.Location = new System.Drawing.Point(16, 240);
+            this.label46.Location = new System.Drawing.Point(21, 295);
+            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(50, 15);
+            this.label46.Size = new System.Drawing.Size(61, 18);
             this.label46.TabIndex = 86;
             this.label46.Text = "+ IGST";
             // 
@@ -1381,18 +1474,20 @@ namespace GSTBill
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(16, 268);
+            this.label3.Location = new System.Drawing.Point(21, 330);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 15);
+            this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 86;
             this.label3.Text = "+ TCS";
             // 
             // label53
             // 
             this.label53.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label53.Location = new System.Drawing.Point(685, 265);
+            this.label53.Location = new System.Drawing.Point(913, 326);
+            this.label53.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(87, 25);
+            this.label53.Size = new System.Drawing.Size(115, 30);
             this.label53.TabIndex = 83;
             // 
             // dtpDueDate
@@ -1400,9 +1495,10 @@ namespace GSTBill
             this.dtpDueDate.CustomFormat = "dd/MM/yyyy";
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(686, 266);
+            this.dtpDueDate.Location = new System.Drawing.Point(915, 327);
+            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(85, 23);
+            this.dtpDueDate.Size = new System.Drawing.Size(112, 26);
             this.dtpDueDate.TabIndex = 81;
             this.dtpDueDate.TabStop = false;
             // 
@@ -1411,9 +1507,10 @@ namespace GSTBill
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(137, 183);
+            this.label41.Location = new System.Drawing.Point(183, 225);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(19, 15);
+            this.label41.Size = new System.Drawing.Size(22, 18);
             this.label41.TabIndex = 86;
             this.label41.Text = "%";
             // 
@@ -1422,9 +1519,10 @@ namespace GSTBill
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(137, 212);
+            this.label44.Location = new System.Drawing.Point(183, 261);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(19, 15);
+            this.label44.Size = new System.Drawing.Size(22, 18);
             this.label44.TabIndex = 86;
             this.label44.Text = "%";
             // 
@@ -1433,9 +1531,10 @@ namespace GSTBill
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(137, 240);
+            this.label48.Location = new System.Drawing.Point(183, 295);
+            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(19, 15);
+            this.label48.Size = new System.Drawing.Size(22, 18);
             this.label48.TabIndex = 86;
             this.label48.Text = "%";
             // 
@@ -1444,9 +1543,10 @@ namespace GSTBill
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(136, 271);
+            this.label5.Location = new System.Drawing.Point(181, 334);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 15);
+            this.label5.Size = new System.Drawing.Size(22, 18);
             this.label5.TabIndex = 86;
             this.label5.Text = "%";
             // 
@@ -1455,9 +1555,10 @@ namespace GSTBill
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.ForeColor = System.Drawing.Color.Black;
-            this.label54.Location = new System.Drawing.Point(584, 270);
+            this.label54.Location = new System.Drawing.Point(779, 332);
+            this.label54.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(67, 15);
+            this.label54.Size = new System.Drawing.Size(78, 18);
             this.label54.TabIndex = 84;
             this.label54.Text = "Due Date";
             // 
@@ -1465,9 +1566,10 @@ namespace GSTBill
             // 
             this.txtTCSPer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTCSPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTCSPer.Location = new System.Drawing.Point(75, 267);
+            this.txtTCSPer.Location = new System.Drawing.Point(100, 329);
+            this.txtTCSPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTCSPer.Name = "txtTCSPer";
-            this.txtTCSPer.Size = new System.Drawing.Size(57, 23);
+            this.txtTCSPer.Size = new System.Drawing.Size(75, 26);
             this.txtTCSPer.TabIndex = 85;
             this.txtTCSPer.TabStop = false;
             this.txtTCSPer.Text = "0";
@@ -1508,17 +1610,37 @@ namespace GSTBill
             this.panel4.Controls.Add(this.label42);
             this.panel4.Controls.Add(this.ddlSGST);
             this.panel4.Controls.Add(this.label40);
-            this.panel4.Location = new System.Drawing.Point(0, 310);
+            this.panel4.Location = new System.Drawing.Point(0, 382);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(783, 299);
+            this.panel4.Size = new System.Drawing.Size(1043, 368);
             this.panel4.TabIndex = 72;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDelete.Location = new System.Drawing.Point(633, 812);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(177, 28);
+            this.btnDelete.TabIndex = 86;
+            this.btnDelete.TabStop = false;
+            this.btnDelete.Text = "Delete(Ctrl+D)";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // SalesDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(784, 686);
+            this.ClientSize = new System.Drawing.Size(1045, 844);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label59);
             this.Controls.Add(this.btnSave);
@@ -1533,6 +1655,7 @@ namespace GSTBill
             this.Controls.Add(this.panel5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SalesDetail";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1679,6 +1802,7 @@ namespace GSTBill
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT;
         private System.Windows.Forms.DataGridViewTextBoxColumn RATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

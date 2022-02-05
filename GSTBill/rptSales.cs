@@ -8,7 +8,7 @@ namespace GSTBill
         DateTime dt, dt2;
         Connectivity cn = new Connectivity();
         String date = DateTime.Today.Day + "-" + DateTime.Today.Month + "-" + DateTime.Today.Year;
-        decimal sales = 0, Disc=0, GT = 0,CGST = 0, SGST = 0, IGST = 0, TCS=0;
+        decimal sales = 0, Disc = 0, GT = 0, CGST = 0, SGST = 0, IGST = 0, TCS = 0;
         public rptSales()
         {
             InitializeComponent();
@@ -73,7 +73,7 @@ namespace GSTBill
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            sales = 0; Disc=0; GT = 0; CGST = 0; SGST = 0; IGST = 0; TCS=0;
+            sales = 0; Disc = 0; GT = 0; CGST = 0; SGST = 0; IGST = 0; TCS = 0;
 
             if (txtInvoiceNo.Text == "")
                 this.rptSalesTableAdapter.Fill(dsRptSales.rptSales, "", Convert.ToInt32(ddlFirm.SelectedValue), Convert.ToInt32(ddlParty.SelectedValue), dt, dt2);
@@ -96,7 +96,7 @@ namespace GSTBill
                 }
                 txtGrossTotal.Text = GT.ToString();
                 txtTotalSales.Text = sales.ToString();
-                txtTotalGST.Text = (CGST+SGST+IGST).ToString();
+                txtTotalGST.Text = (CGST + SGST + IGST).ToString();
             }
             else
             {
@@ -107,6 +107,7 @@ namespace GSTBill
 
 
         }
+
 
         private void dtpFromDate_ValueChanged(object sender, EventArgs e)
         {

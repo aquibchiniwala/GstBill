@@ -111,6 +111,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPartyMasterView.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatasetList\dsRptFilterParty50L.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRptFilterParty50L.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatasetList\dsRptSales.cs">
       <DependentUpon>dsRptSales.xsd</DependentUpon>
     </Compile>
@@ -141,6 +146,12 @@
     </Compile>
     <Compile Include="PurchaseDetail.Designer.cs">
       <DependentUpon>PurchaseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptFilterParty50L.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptFilterParty50L.Designer.cs">
+      <DependentUpon>rptFilterParty50L.cs</DependentUpon>
     </Compile>
     <Compile Include="SalesDetail.cs">
       <SubType>Form</SubType>
@@ -200,6 +211,9 @@
     <EmbeddedResource Include="PurchaseDetail.resx">
       <DependentUpon>PurchaseDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptFilterParty50L.resx">
+      <DependentUpon>rptFilterParty50L.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesDetail.resx">
       <DependentUpon>SalesDetail.cs</DependentUpon>
@@ -314,6 +328,17 @@
     </None>
     <None Include="DatasetList\dsPartyMasterView.xss">
       <DependentUpon>dsPartyMasterView.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsRptFilterParty50L.xsc">
+      <DependentUpon>dsRptFilterParty50L.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetList\dsRptFilterParty50L.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRptFilterParty50L.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetList\dsRptFilterParty50L.xss">
+      <DependentUpon>dsRptFilterParty50L.xsd</DependentUpon>
     </None>
     <None Include="DatasetList\dsRptSales.xsc">
       <DependentUpon>dsRptSales.xsd</DependentUpon>

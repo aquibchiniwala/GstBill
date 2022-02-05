@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
 
 namespace GSTBill
 {
@@ -64,6 +65,7 @@ namespace GSTBill
             txtChequeNo.Text = "";
             txtChequeDate.Text = "";
             txtAmount.Text = "";
+            btnDelete.Enabled = false;
             setNextInvoiceNo();
         }
 
@@ -424,7 +426,7 @@ namespace GSTBill
             e.Graphics.DrawString("Subject To Surat Jurisdiction.", font4, Brushes.Black, 20, 1060);
 
             e.Graphics.DrawString("E. & O. E.", font0, Brushes.Black, 695, 1000);
-            e.Graphics.DrawString("for, "+ddlFirm.Text, font3, Brushes.Black, 470, 1000);
+            e.Graphics.DrawString("for, " + ddlFirm.Text, font3, Brushes.Black, 470, 1000);
             e.Graphics.DrawString("Authorised Signatory.", font3, Brushes.Black, 570, 1060);
 
 
@@ -594,7 +596,7 @@ namespace GSTBill
 
         public void setNextInvoiceNo()
         {
-            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceNo desc ", cn.cn);
+            SqlCommand cmd = new SqlCommand("select top 1  InvoiceNo from SalesMaster where FirmID='" + ddlFirm.SelectedValue + "' order by InvoiceDate desc ", cn.cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -623,6 +625,10 @@ namespace GSTBill
             {
                 btnSave_Click(sender, e);
             }
+            else if (btnDelete.Enabled==true && e.KeyCode == Keys.S && e.Control)
+            {
+                btnSave_Click(sender, e);
+            }
             else if (e.KeyCode == Keys.Escape)
             {
                 cn.Exit(this);
@@ -644,6 +650,51 @@ namespace GSTBill
         private void txtTCSPer_TextChanged(object sender, EventArgs e)
         {
             NetTotal();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete bill with Invoice No: " + txtInvoiceNo.Text + " ?", "Liberty Softwares", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                if (cn.cn.State == ConnectionState.Closed)
+                    cn.cn.Open();
+
+                SqlCommand cmd2 = new SqlCommand("select SalesDetailID from SalesDetail where InvoiceNo='" + txtInvoiceNo.Text + "' and FirmID='" + ddlFirm.SelectedValue + "'", cn.cn);
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                DataSet ds2 = new DataSet();
+                da2.Fill(ds2);
+
+                if (ds2.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds2.Tables[0].Rows.Count; i++)
+                    {
+                        SqlCommand cmd = new SqlCommand("SalesDetailDelete", cn.cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("SalesDetailID", ds2.Tables[0].Rows[i][0].ToString()).DbType = DbType.Int64;
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
+                }
+
+
+                SqlCommand cmd3 = new SqlCommand("SalesMasterDelete", cn.cn);
+                cmd3.CommandType = CommandType.StoredProcedure;
+                cmd3.Parameters.AddWithValue("InvoiceNo", txtInvoiceNo.Text).DbType = DbType.String;
+                cmd3.Parameters.AddWithValue("FirmID", ddlFirm.SelectedValue).DbType = DbType.Int64;
+                cmd3.ExecuteNonQuery();
+                cmd3.Dispose();
+                if (cn.cn.State == ConnectionState.Open)
+                    cn.cn.Close();
+
+                if (File.Exists(Application.StartupPath + "\\Firms\\" + ddlFirm.Text + "\\" + txtInvoiceNo.Text + ".xps"))
+                {
+                    File.Delete(Application.StartupPath + "\\Firms\\" + ddlFirm.Text + "\\" + txtInvoiceNo.Text + ".xps");
+                }
+
+                cn.DeleteMessage();
+                reset();
+            }
         }
 
         private void txtTCSPer_KeyPress(object sender, KeyPressEventArgs e)
@@ -1358,7 +1409,7 @@ namespace GSTBill
                         dgv.Rows.Insert(i, ds2.Tables[0].Rows[i][3].ToString(), ds2.Tables[0].Rows[i][3].ToString(), ds2.Tables[0].Rows[i][4].ToString(), ds2.Tables[0].Rows[i][5].ToString(), ds2.Tables[0].Rows[i][6].ToString(), ds2.Tables[0].Rows[i][7].ToString(), ds2.Tables[0].Rows[i][8].ToString());
                     }
                 }
-
+                btnDelete.Enabled = true;
             }
         }
 
